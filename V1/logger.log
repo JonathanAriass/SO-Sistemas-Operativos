@@ -1,13 +1,16 @@
 30 messages loaded from file messagesTCH.txt
-2 messages loaded from file messagesSTD.txt
+3 messages loaded from file messagesSTD.txt
 0 Asserts Loaded
 Process [0] created from program [SystemIdleProcess]
 Process [1] created from program [prog-V1-E3]
 Process [2] created from program [prog-V1-E3]
 Process [3] created from program [prog-V1-E3]
 Process [-3] created from program [prog-V1-E3]
+ERROR: There are not free entries in the process table for the program  prog-V1-E3
 Process [-3] created from program [prog-V1-E3]
+ERROR: There are not free entries in the process table for the program  prog-V1-E3
 Process [-3] created from program [programMEMADD]
+ERROR: There are not free entries in the process table for the program  programMEMADD
 User progam list:
 	Program [prog-V1-E3] with arrival time [0]
 	Program [prog-V1-E3] with arrival time [0]

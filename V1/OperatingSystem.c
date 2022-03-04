@@ -110,13 +110,18 @@ int OperatingSystem_LongTermScheduler() {
 	
 	for (i=0; programList[i]!=NULL && i<PROGRAMSMAXNUMBER ; i++) {
 		PID=OperatingSystem_CreateProcess(i);
-		numberOfSuccessfullyCreatedProcesses++;
-		if (programList[i]->type==USERPROGRAM) 
-			numberOfNotTerminatedUserProcesses++;
-		// Move process to the ready state
-		OperatingSystem_MoveToTheREADYState(PID);
+		if (PID >= 0) {
+		
+			numberOfSuccessfullyCreatedProcesses++;
+			if (programList[i]->type==USERPROGRAM) 
+				numberOfNotTerminatedUserProcesses++;
+			// Move process to the ready state
+			OperatingSystem_MoveToTheREADYState(PID);
+	
+		} else {
+			ComputerSystem_DebugMessage(103,ERROR,"ERROR: There are not free entries in the process table for the program ", programList[i] -> executableName);
+		}
 	}
-
 	// Return the number of succesfully created processes
 	return numberOfSuccessfullyCreatedProcesses;
 }
@@ -156,7 +161,7 @@ int OperatingSystem_CreateProcess(int indexOfExecutableProgram) {
 	// Show message "Process [PID] created from program [executableName]\n"
 	ComputerSystem_DebugMessage(70,INIT,PID,executableProgram->executableName);
 	
-	return PID > 0 ? PID : NOFREEENTRY;
+	return PID >= 0 ? PID : NOFREEENTRY;
 }
 
 

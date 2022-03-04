@@ -5,3 +5,4 @@
 //
 101,User progam list:\n
 102,\tProgram [@C%s@@] with arrival time [@C%d@@]\n
+103,@R%s %s@@\n
