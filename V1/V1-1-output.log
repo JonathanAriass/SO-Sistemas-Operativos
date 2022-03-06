@@ -2,14 +2,14 @@
 4 messages loaded from file messagesSTD.txt
 0 Asserts Loaded
 Process [0] created from program [SystemIdleProcess]
-ERROR: Program [prog] is not valid [it does not exist]
-ERROR: Program [programWithNoPriority] is not valid [invalid priority or size]
 Process [1] created from program [prog-V1-E3]
-ERROR: Program [programMEMADD] is not valid [invalid priority or size]
+ERROR: Program [prog] is not valid [--- it does not exist ---]
+ERROR: Program [programWithNoPriority] is not valid [--- invalid priority or size ---]
+ERROR: Program [programMEMADD] is not valid [--- invalid priority or size ---]
 User progam list:
+	Program [prog-V1-E3] with arrival time [0]
 	Program [prog] with arrival time [0]
 	Program [programWithNoPriority] with arrival time [0]
-	Program [prog-V1-E3] with arrival time [0]
 	Program [programMEMADD] with arrival time [0]
 New Tick (1)
 {0D 000 000} IRET 0 0 (PC: 0, Accumulator: 0, PSW: 0082 [--------X-----Z-])
