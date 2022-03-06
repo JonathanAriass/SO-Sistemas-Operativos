@@ -119,7 +119,19 @@ int OperatingSystem_LongTermScheduler() {
 			OperatingSystem_MoveToTheREADYState(PID);
 	
 		} else {
-			ComputerSystem_DebugMessage(103,ERROR,"ERROR: There are not free entries in the process table for the program ", programList[i] -> executableName);
+			switch(PID) {
+				case PROGRAMNOTVALID:
+					ComputerSystem_DebugMessage(104,ERROR,programList[i] -> executableName,"invalid priority or size");
+					break;
+				case PROGRAMDOESNOTEXIST:
+					ComputerSystem_DebugMessage(104,ERROR,programList[i] -> executableName,"it does not exist");
+					break;
+				case NOFREEENTRY:
+					ComputerSystem_DebugMessage(103,ERROR,programList[i] -> executableName);
+					break;
+				default:
+					break;
+			}
 		}
 	}
 	// Return the number of succesfully created processes
@@ -140,14 +152,29 @@ int OperatingSystem_CreateProcess(int indexOfExecutableProgram) {
 	// Obtain a process ID
 	PID=OperatingSystem_ObtainAnEntryInTheProcessTable();
 
+	if (PID == -3) {
+		return NOFREEENTRY;
+	}
+
 	// Check if programFile exists
 	programFile=fopen(executableProgram->executableName, "r");
+	// We check if the program exists
+	if (programFile == NULL) {
+		return PROGRAMDOESNOTEXIST;
+	}
+
 
 	// Obtain the memory requirements of the program
 	processSize=OperatingSystem_ObtainProgramSize(programFile);	
-
+	
 	// Obtain the priority for the process
 	priority=OperatingSystem_ObtainPriority(programFile);
+	
+	// We check that the size and priority is valid
+	if (processSize == -2 || priority == -2) {
+		return PROGRAMNOTVALID;
+	}
+		
 	
 	// Obtain enough memory space
  	loadingPhysicalAddress=OperatingSystem_ObtainMainMemory(processSize, PID);
@@ -161,7 +188,7 @@ int OperatingSystem_CreateProcess(int indexOfExecutableProgram) {
 	// Show message "Process [PID] created from program [executableName]\n"
 	ComputerSystem_DebugMessage(70,INIT,PID,executableProgram->executableName);
 	
-	return PID >= 0 ? PID : NOFREEENTRY;
+	return PID;
 }
 
 
