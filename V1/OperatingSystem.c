@@ -129,6 +129,9 @@ int OperatingSystem_LongTermScheduler() {
 				case NOFREEENTRY:
 					ComputerSystem_DebugMessage(103,ERROR,programList[i] -> executableName);
 					break;
+				case TOOBIGPROCESS:
+					ComputerSystem_DebugMessage(105,ERROR,programList[i] -> executableName);
+					break;
 				default:
 					break;
 			}
@@ -166,7 +169,7 @@ int OperatingSystem_CreateProcess(int indexOfExecutableProgram) {
 
 	// Obtain the memory requirements of the program
 	processSize=OperatingSystem_ObtainProgramSize(programFile);	
-	
+
 	// Obtain the priority for the process
 	priority=OperatingSystem_ObtainPriority(programFile);
 	
@@ -174,10 +177,13 @@ int OperatingSystem_CreateProcess(int indexOfExecutableProgram) {
 	if (processSize == -2 || priority == -2) {
 		return PROGRAMNOTVALID;
 	}
-		
-	
+			
 	// Obtain enough memory space
  	loadingPhysicalAddress=OperatingSystem_ObtainMainMemory(processSize, PID);
+	// We check if the programm size is small enough to fit on the memmory space
+	if (loadingPhysicalAddress == TOOBIGPROCESS) {
+		return TOOBIGPROCESS;
+	}
 
 	// Load program in the allocated memory
 	OperatingSystem_LoadProgram(programFile, loadingPhysicalAddress, processSize);
