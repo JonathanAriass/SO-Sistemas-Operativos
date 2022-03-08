@@ -390,3 +390,16 @@ void OperatingSystem_InterruptLogic(int entryPoint){
 
 }
 
+/*
+void OperatingSystem_PrintReadyToRunQueue() {
+	ComputerSystem_DebugMessage(106,SHORTTERMSCHEDULE);
+	
+	char c[] = "";
+	
+	for (int i=0;i<numberOfReadyToRunProcesses;i++) {
+		char aux[] =  "[" + readyToRunQueue[i].  + "]"
+		c = strcat(c,aux);
+	}
+
+}
+*/
