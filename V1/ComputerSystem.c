@@ -14,8 +14,6 @@ static void ComputerSystem_PrintProgramList();
 // Powers on of the Computer System.
 void ComputerSystem_PowerOn(int argc, char *argv[], int paramIndex) {
 
-	//ComputerSystem_PrintProgramList();
-
 	// Obtain a list of programs in the command line
 	int daemonsBaseIndex = ComputerSystem_ObtainProgramList(argc, argv, paramIndex);
 
@@ -28,17 +26,16 @@ void ComputerSystem_PowerOn(int argc, char *argv[], int paramIndex) {
 	}
 	nm=Messages_Load_Messages(nm,STUDENT_MESSAGES_FILE);
 
-	//ComputerSystem_PrintProgramList();
-
 	// Prepare if necesary the assert system
 	Asserts_LoadAsserts();
 	
-
+	// Print program list
+	ComputerSystem_PrintProgramList();	
+	
 	// Request the OS to do the initial set of tasks. The last one will be
 	// the processor allocation to the process with the highest priority
 	OperatingSystem_Initialize(daemonsBaseIndex);
 
-	ComputerSystem_PrintProgramList();	
 	
 	// Tell the processor to begin its instruction cycle 
 	Processor_InstructionCycleLoop();
@@ -59,10 +56,9 @@ void ComputerSystem_PowerOff() {
 //
 void ComputerSystem_PrintProgramList() {
 	ComputerSystem_DebugMessage(101, INIT);
-	for (int i=0;programList[i] != NULL && i<PROGRAMSMAXNUMBER;i++) {
+	for (int i=1;programList[i] != NULL;i++) {
 		if (programList[i] -> type == USERPROGRAM) {
-			ComputerSystem_DebugMessage(102, INIT, programList[i] -> executableName, programList[i] -> arrivalTime);
+			ComputerSystem_DebugMessage(102, INIT, programList[i] -> executableName, programList[i] -> arrivalTime);	
 		}
-			
 	}
 }
