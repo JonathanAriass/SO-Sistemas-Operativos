@@ -24,6 +24,7 @@ int OperatingSystem_ShortTermScheduler();
 int OperatingSystem_ExtractFromReadyToRun();
 void OperatingSystem_HandleException();
 void OperatingSystem_HandleSystemCall();
+void OperatingSystem_PrintReadyToRunQueue();
 
 // The process table
 PCB processTable[PROCESSTABLEMAXSIZE];
@@ -240,6 +241,7 @@ void OperatingSystem_MoveToTheREADYState(int PID) {
 	if (Heap_add(PID, readyToRunQueue,QUEUE_PRIORITY ,&numberOfReadyToRunProcesses ,PROCESSTABLEMAXSIZE)>=0) {
 		processTable[PID].state=READY;
 	} 
+	OperatingSystem_PrintReadyToRunQueue();
 }
 
 
@@ -390,16 +392,23 @@ void OperatingSystem_InterruptLogic(int entryPoint){
 
 }
 
-/*
+
 void OperatingSystem_PrintReadyToRunQueue() {
-	ComputerSystem_DebugMessage(106,SHORTTERMSCHEDULE);
-	
-	char c[] = "";
-	
+	ComputerSystem_DebugMessage(106,SHORTTERMSCHEDULE,"Ready-to-run processes queue:");
+
+	if (numberOfReadyToRunProcesses == 1) {
+		ComputerSystem_DebugMessage(108,SHORTTERMSCHEDULE,readyToRunQueue[0].info,processTable[readyToRunQueue[0].info].priority);
+		return;
+	}
+
 	for (int i=0;i<numberOfReadyToRunProcesses;i++) {
-		char aux[] =  "[" + readyToRunQueue[i].  + "]"
-		c = strcat(c,aux);
+		if (i == numberOfReadyToRunProcesses-1) { 
+			ComputerSystem_DebugMessage(108,SHORTTERMSCHEDULE,readyToRunQueue[i].info,processTable[readyToRunQueue[i].info].priority);
+		} else {
+			ComputerSystem_DebugMessage(107,SHORTTERMSCHEDULE,readyToRunQueue[i].info,processTable[readyToRunQueue[i].info].priority);
+		}
 	}
 
 }
-*/
+
+
