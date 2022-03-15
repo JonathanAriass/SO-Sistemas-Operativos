@@ -53,6 +53,8 @@ int numberOfNotTerminatedUserProcesses=0;
 
 char DAEMONS_PROGRAMS_FILE[MAXIMUMLENGTH]="teachersDaemons";
 
+char * statesNames [5]={"NEW","READY","EXECUTING","BLOCKED","EXIT"};
+
 // Initial set of tasks of the OS
 void OperatingSystem_Initialize(int daemonsIndex) {
 	
@@ -221,6 +223,7 @@ void OperatingSystem_PCBInitialization(int PID, int initialPhysicalAddress, int 
 	processTable[PID].state=NEW;
 	processTable[PID].priority=priority;
 	processTable[PID].programListIndex=processPLIndex;
+	ComputerSystem_DebugMessage(111,SYSPROC,PID,programList[processTable[executingProcessID].programListIndex]->executableName,statesNames[0]);
 	// Daemons run in protected mode and MMU use real address
 	if (programList[processPLIndex]->type == DAEMONPROGRAM) {
 		processTable[PID].copyOfPCRegister=initialPhysicalAddress;
@@ -237,9 +240,10 @@ void OperatingSystem_PCBInitialization(int PID, int initialPhysicalAddress, int 
 // Move a process to the READY state: it will be inserted, depending on its priority, in
 // a queue of identifiers of READY processes
 void OperatingSystem_MoveToTheREADYState(int PID) {
-	
+	int previousState = processTable[PID].state;
 	if (Heap_add(PID, readyToRunQueue,QUEUE_PRIORITY ,&numberOfReadyToRunProcesses ,PROCESSTABLEMAXSIZE)>=0) {
 		processTable[PID].state=READY;
+		ComputerSystem_DebugMessage(110,SYSPROC,PID,programList[processTable[executingProcessID].programListIndex]->executableName,statesNames[previousState],statesNames[1]);
 	} 
 	OperatingSystem_PrintReadyToRunQueue();
 }
@@ -273,10 +277,13 @@ int OperatingSystem_ExtractFromReadyToRun() {
 // Function that assigns the processor to a process
 void OperatingSystem_Dispatch(int PID) {
 
+	int previousState = processTable[PID].state;
+
 	// The process identified by PID becomes the current executing process
 	executingProcessID=PID;
 	// Change the process' state
 	processTable[PID].state=EXECUTING;
+	ComputerSystem_DebugMessage(110,SYSPROC,PID,programList[processTable[executingProcessID].programListIndex]->executableName,statesNames[previousState],statesNames[EXECUTING]);
 	// Modify hardware registers with appropriate values for the process identified by PID
 	OperatingSystem_RestoreContext(PID);
 }
@@ -333,9 +340,10 @@ void OperatingSystem_HandleException() {
 void OperatingSystem_TerminateProcess() {
   
 	int selectedProcess;
-  	
+  	int previousState = processTable[executingProcessID].state;
 	processTable[executingProcessID].state=EXIT;
-	
+	ComputerSystem_DebugMessage(110,SYSPROC,executingProcessID,programList[processTable[executingProcessID].programListIndex]->executableName,statesNames[previousState],statesNames[EXIT]);
+
 	if (programList[processTable[executingProcessID].programListIndex]->type==USERPROGRAM) 
 		// One more user process that has terminated
 		numberOfNotTerminatedUserProcesses--;
@@ -410,5 +418,6 @@ void OperatingSystem_PrintReadyToRunQueue() {
 	}
 
 }
+
 
 
