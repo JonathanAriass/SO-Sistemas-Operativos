@@ -45,8 +45,10 @@ int initialPID=PROCESSTABLEMAXSIZE-1;
 int baseDaemonsInProgramList; 
 
 // Array that contains the identifiers of the READY processes
-heapItem readyToRunQueue[PROCESSTABLEMAXSIZE];
-int numberOfReadyToRunProcesses=0;
+heapItem readyToRunQueue[NUMBEROFQUEUES][PROCESSTABLEMAXSIZE];
+int numberOfReadyToRunProcesses[NUMBEROFQUEUES]={0, 0};
+
+char * queueNames[NUMBEROFQUEUES]={"USER","DAEMONS"};
 
 // Variable containing the number of not terminated user processes
 int numberOfNotTerminatedUserProcesses=0;
@@ -223,15 +225,17 @@ void OperatingSystem_PCBInitialization(int PID, int initialPhysicalAddress, int 
 	processTable[PID].state=NEW;
 	processTable[PID].priority=priority;
 	processTable[PID].programListIndex=processPLIndex;
-	ComputerSystem_DebugMessage(111,SYSPROC,PID,programList[processTable[executingProcessID].programListIndex]->executableName,statesNames[0]);
+	ComputerSystem_DebugMessage(111,SYSPROC,PID,programList[processTable[PID].programListIndex]->executableName,statesNames[0]);
 	// Daemons run in protected mode and MMU use real address
 	if (programList[processPLIndex]->type == DAEMONPROGRAM) {
 		processTable[PID].copyOfPCRegister=initialPhysicalAddress;
 		processTable[PID].copyOfPSWRegister= ((unsigned int) 1) << EXECUTION_MODE_BIT;
+		processTable[PID].queueID = DAEMONSQUEUE;
 	} 
 	else {
 		processTable[PID].copyOfPCRegister=0;
 		processTable[PID].copyOfPSWRegister=0;
+		processTable[PID].queueID = USERPROCESSQUEUE;
 	}
 
 }
@@ -241,9 +245,9 @@ void OperatingSystem_PCBInitialization(int PID, int initialPhysicalAddress, int 
 // a queue of identifiers of READY processes
 void OperatingSystem_MoveToTheREADYState(int PID) {
 	int previousState = processTable[PID].state;
-	if (Heap_add(PID, readyToRunQueue,QUEUE_PRIORITY ,&numberOfReadyToRunProcesses ,PROCESSTABLEMAXSIZE)>=0) {
+	if (Heap_add(PID, readyToRunQueue[processTable[PID].queueID],QUEUE_PRIORITY ,&numberOfReadyToRunProcesses[processTable[PID].queueID] ,PROCESSTABLEMAXSIZE)>=0) {
 		processTable[PID].state=READY;
-		ComputerSystem_DebugMessage(110,SYSPROC,PID,programList[processTable[executingProcessID].programListIndex]->executableName,statesNames[previousState],statesNames[1]);
+		ComputerSystem_DebugMessage(110,SYSPROC,PID,programList[processTable[PID].programListIndex]->executableName,statesNames[previousState],statesNames[1]);
 	} 
 	OperatingSystem_PrintReadyToRunQueue();
 }
@@ -256,18 +260,23 @@ int OperatingSystem_ShortTermScheduler() {
 	
 	int selectedProcess;
 
-	selectedProcess=OperatingSystem_ExtractFromReadyToRun();
+	if (numberOfReadyToRunProcesses[USERPROCESSQUEUE] > 0) {
+		selectedProcess=OperatingSystem_ExtractFromReadyToRun(USERPROCESSQUEUE);
+	}
+	else {
+		selectedProcess=OperatingSystem_ExtractFromReadyToRun(DAEMONSQUEUE);
+	}
 	
 	return selectedProcess;
 }
 
 
 // Return PID of more priority process in the READY queue
-int OperatingSystem_ExtractFromReadyToRun() {
+int OperatingSystem_ExtractFromReadyToRun(int queueID) {
   
 	int selectedProcess=NOPROCESS;
-
-	selectedProcess=Heap_poll(readyToRunQueue,QUEUE_PRIORITY ,&numberOfReadyToRunProcesses);
+	
+	selectedProcess=Heap_poll(readyToRunQueue[queueID],QUEUE_PRIORITY ,&numberOfReadyToRunProcesses[queueID]);
 	
 	// Return most priority process or NOPROCESS if empty queue
 	return selectedProcess; 
@@ -384,6 +393,10 @@ void OperatingSystem_HandleSystemCall() {
 			ComputerSystem_DebugMessage(73,SYSPROC,executingProcessID,programList[processTable[executingProcessID].programListIndex]->executableName);
 			OperatingSystem_TerminateProcess();
 			break;
+		// case SYSCALL_YIELD:
+		// 	int queueID = processTable[executingProcessID].queueID;
+		// 	if (processTable[executingProcessID].priority == readyToRunQueue[queueID])
+		// 	break;
 	}
 }
 	
@@ -404,16 +417,36 @@ void OperatingSystem_InterruptLogic(int entryPoint){
 void OperatingSystem_PrintReadyToRunQueue() {
 	ComputerSystem_DebugMessage(106,SHORTTERMSCHEDULE,"Ready-to-run processes queue:");
 
-	if (numberOfReadyToRunProcesses == 1) {
-		ComputerSystem_DebugMessage(108,SHORTTERMSCHEDULE,readyToRunQueue[0].info,processTable[readyToRunQueue[0].info].priority);
-		return;
+	// if (numberOfReadyToRunProcesses == 1) {
+	// 	ComputerSystem_DebugMessage(108,SHORTTERMSCHEDULE,readyToRunQueue[0].info,processTable[readyToRunQueue[0].info].priority);
+	// 	return;
+	// }
+
+	ComputerSystem_DebugMessage(112,SHORTTERMSCHEDULE);
+	if (numberOfReadyToRunProcesses[USERPROCESSQUEUE] <= 1) {
+		ComputerSystem_DebugMessage(108,SHORTTERMSCHEDULE,readyToRunQueue[USERPROCESSQUEUE][0].info,processTable[readyToRunQueue[USERPROCESSQUEUE][0].info].priority);
+	} else {
+		for (int i=0;i<numberOfReadyToRunProcesses[USERPROCESSQUEUE];i++) {
+			if (i == numberOfReadyToRunProcesses[USERPROCESSQUEUE]-1) { 
+					ComputerSystem_DebugMessage(108,SHORTTERMSCHEDULE,readyToRunQueue[USERPROCESSQUEUE][i].info,processTable[readyToRunQueue[USERPROCESSQUEUE][i].info].priority);
+			} 
+			else {
+					ComputerSystem_DebugMessage(107,SHORTTERMSCHEDULE,readyToRunQueue[USERPROCESSQUEUE][i].info,processTable[readyToRunQueue[USERPROCESSQUEUE][i].info].priority);
+			}
+		}
 	}
 
-	for (int i=0;i<numberOfReadyToRunProcesses;i++) {
-		if (i == numberOfReadyToRunProcesses-1) { 
-			ComputerSystem_DebugMessage(108,SHORTTERMSCHEDULE,readyToRunQueue[i].info,processTable[readyToRunQueue[i].info].priority);
-		} else {
-			ComputerSystem_DebugMessage(107,SHORTTERMSCHEDULE,readyToRunQueue[i].info,processTable[readyToRunQueue[i].info].priority);
+	ComputerSystem_DebugMessage(113,SHORTTERMSCHEDULE);
+	if (numberOfReadyToRunProcesses[DAEMONSQUEUE] <= 1) {
+		ComputerSystem_DebugMessage(108,SHORTTERMSCHEDULE,readyToRunQueue[DAEMONSQUEUE][0].info,processTable[readyToRunQueue[DAEMONSQUEUE][0].info].priority);
+	} else { 
+		for (int i=0;i<numberOfReadyToRunProcesses[DAEMONSQUEUE];i++) {
+			if (i == numberOfReadyToRunProcesses[DAEMONSQUEUE]-1) { 
+					ComputerSystem_DebugMessage(108,SHORTTERMSCHEDULE,readyToRunQueue[DAEMONSQUEUE][i].info,processTable[readyToRunQueue[DAEMONSQUEUE][i].info].priority);
+			} 
+			else {
+					ComputerSystem_DebugMessage(107,SHORTTERMSCHEDULE,readyToRunQueue[DAEMONSQUEUE][i].info,processTable[readyToRunQueue[DAEMONSQUEUE][i].info].priority);
+			}
 		}
 	}
 
