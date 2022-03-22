@@ -87,7 +87,12 @@ void OperatingSystem_Initialize(int daemonsIndex) {
 	
 	// Create all user processes from the information given in the command line
 	OperatingSystem_LongTermScheduler();
-	
+
+	if (numberOfNotTerminatedUserProcesses == 0) {
+		//OperatingSystem_TerminatingSIP();
+		OperatingSystem_ReadyToShutdown();
+	}
+
 	if (strcmp(programList[processTable[sipID].programListIndex]->executableName,"SystemIdleProcess")) {
 		// Show red message "FATAL ERROR: Missing SIP program!\n"
 		ComputerSystem_DebugMessage(99,SHUTDOWN,"FATAL ERROR: Missing SIP program!\n");
@@ -256,6 +261,7 @@ void OperatingSystem_MoveToTheREADYState(int PID) {
 // The STS is responsible of deciding which process to execute when specific events occur.
 // It uses processes priorities to make the decission. Given that the READY queue is ordered
 // depending on processes priority, the STS just selects the process in front of the READY queue
+// Devuelve el pid del proceso con mas prioridad de las colas.
 int OperatingSystem_ShortTermScheduler() {
 	
 	int selectedProcess;
@@ -304,6 +310,7 @@ void OperatingSystem_RestoreContext(int PID) {
 	// New values for the CPU registers are obtained from the PCB
 	Processor_CopyInSystemStack(MAINMEMORYSIZE-1,processTable[PID].copyOfPCRegister);
 	Processor_CopyInSystemStack(MAINMEMORYSIZE-2,processTable[PID].copyOfPSWRegister);
+	Processor_SetAccumulator(processTable[PID].copyOfAcumulator);
 	
 	// Same thing for the MMU registers
 	MMU_SetBase(processTable[PID].initialPhysicalAddress);
@@ -332,6 +339,9 @@ void OperatingSystem_SaveContext(int PID) {
 	// Load PSW saved for interrupt manager
 	processTable[PID].copyOfPSWRegister=Processor_CopyFromSystemStack(MAINMEMORYSIZE-2);
 	
+	// Save Accumulator to PCB
+	processTable[PID].copyOfAcumulator = Processor_GetAccumulator();
+
 }
 
 
@@ -382,6 +392,11 @@ void OperatingSystem_HandleSystemCall() {
 	// Register A contains the identifier of the issued system call
 	systemCallID=Processor_GetRegisterA();
 	
+	// int previousPID = executingProcessID; 
+	// int queue = processTable[executingProcessID].queueID;
+
+	int programID;
+
 	switch (systemCallID) {
 		case SYSCALL_PRINTEXECPID:
 			// Show message: "Process [executingProcessID] has the processor assigned\n"
@@ -393,10 +408,20 @@ void OperatingSystem_HandleSystemCall() {
 			ComputerSystem_DebugMessage(73,SYSPROC,executingProcessID,programList[processTable[executingProcessID].programListIndex]->executableName);
 			OperatingSystem_TerminateProcess();
 			break;
-		// case SYSCALL_YIELD:
-		// 	int queueID = processTable[executingProcessID].queueID;
-		// 	if (processTable[executingProcessID].priority == readyToRunQueue[queueID])
-		// 	break;
+		case SYSCALL_YIELD:
+			// int previousPID = executingProcessID; 
+			// int queue = processTable[executingProcessID].queueID;
+			// if (processTable[executingProcessID].priority == readyToRunQueue[queueID][0].)
+			
+			programID = Heap_getFirst(readyToRunQueue[processTable[executingProcessID].queueID],numberOfReadyToRunProcesses[processTable[executingProcessID].queueID]);
+
+			if (processTable[executingProcessID].priority == processTable[programID].priority) {
+				// executingProcessID = readyToRunQueue[queue][0].info;
+				ComputerSystem_DebugMessage(115,SHORTTERMSCHEDULE,executingProcessID,programList[processTable[executingProcessID].programListIndex]->executableName,programID,programList[processTable[programID].programListIndex]->executableName);
+				OperatingSystem_PreemptRunningProcess();
+				OperatingSystem_Dispatch(OperatingSystem_ShortTermScheduler());
+			}
+			break;
 	}
 }
 	
@@ -423,7 +448,10 @@ void OperatingSystem_PrintReadyToRunQueue() {
 	// }
 
 	ComputerSystem_DebugMessage(112,SHORTTERMSCHEDULE);
-	if (numberOfReadyToRunProcesses[USERPROCESSQUEUE] <= 1) {
+	if (numberOfReadyToRunProcesses[USERPROCESSQUEUE] == 0) {
+		ComputerSystem_DebugMessage(109,SHORTTERMSCHEDULE);
+	}
+	else if (numberOfReadyToRunProcesses[USERPROCESSQUEUE] <= 1) {
 		ComputerSystem_DebugMessage(108,SHORTTERMSCHEDULE,readyToRunQueue[USERPROCESSQUEUE][0].info,processTable[readyToRunQueue[USERPROCESSQUEUE][0].info].priority);
 	} else {
 		for (int i=0;i<numberOfReadyToRunProcesses[USERPROCESSQUEUE];i++) {
@@ -437,7 +465,10 @@ void OperatingSystem_PrintReadyToRunQueue() {
 	}
 
 	ComputerSystem_DebugMessage(113,SHORTTERMSCHEDULE);
-	if (numberOfReadyToRunProcesses[DAEMONSQUEUE] <= 1) {
+	if (numberOfReadyToRunProcesses[DAEMONSQUEUE] == 0) {
+		ComputerSystem_DebugMessage(109,SHORTTERMSCHEDULE);
+	}
+	else if (numberOfReadyToRunProcesses[DAEMONSQUEUE] <= 1) {
 		ComputerSystem_DebugMessage(108,SHORTTERMSCHEDULE,readyToRunQueue[DAEMONSQUEUE][0].info,processTable[readyToRunQueue[DAEMONSQUEUE][0].info].priority);
 	} else { 
 		for (int i=0;i<numberOfReadyToRunProcesses[DAEMONSQUEUE];i++) {

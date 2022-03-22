@@ -191,27 +191,43 @@ void Processor_DecodeAndExecuteInstruction() {
 			break;
 
 		// Instruction HALT
-		case HALT_INST: 
-			Processor_ActivatePSW_Bit(POWEROFF_BIT);
+		case HALT_INST:
+			if (Processor_PSW_BitState(EXECUTION_MODE_BIT) != 1) {
+				Processor_RaiseInterrupt(EXCEPTION_BIT);
+			} else {
+				Processor_ActivatePSW_Bit(POWEROFF_BIT);
+				break;
+			}
 			break;
 			  
 		// Instruction OS
-		case OS_INST: // Make a operating system routine in entry point indicated by operand1
-			// Show final part of HARDWARE message with CPU registers
-			// Show message: " (PC: registerPC_CPU, Accumulator: registerAccumulator_CPU, PSW: registerPSW_CPU [Processor_ShowPSW()]\n
-			ComputerSystem_DebugMessage(69, HARDWARE,InstructionNames[operationCode],operand1,operand2,registerPC_CPU,registerAccumulator_CPU,registerPSW_CPU,Processor_ShowPSW());
-			// Not all operating system code is executed in simulated processor, but really must do it... 
-			OperatingSystem_InterruptLogic(operand1);
-			registerPC_CPU++;
-			// Update PSW bits (ZERO_BIT, NEGATIVE_BIT, ...)
-			Processor_UpdatePSW();
-			return; // Note: message show before... for operating system messages after...
-
+		case OS_INST:
+			if (Processor_PSW_BitState(EXECUTION_MODE_BIT) != 1) {
+				Processor_RaiseInterrupt(EXCEPTION_BIT);
+			} else {
+				// Make a operating system routine in entry point indicated by operand1
+				// Show final part of HARDWARE message with CPU registers
+				// Show message: " (PC: registerPC_CPU, Accumulator: registerAccumulator_CPU, PSW: registerPSW_CPU [Processor_ShowPSW()]\n
+				ComputerSystem_DebugMessage(69, HARDWARE,InstructionNames[operationCode],operand1,operand2,registerPC_CPU,registerAccumulator_CPU,registerPSW_CPU,Processor_ShowPSW());
+				// Not all operating system code is executed in simulated processor, but really must do it... 
+				OperatingSystem_InterruptLogic(operand1);
+				registerPC_CPU++;
+				// Update PSW bits (ZERO_BIT, NEGATIVE_BIT, ...)
+				Processor_UpdatePSW();
+				return; // Note: message show before... for operating system messages after...
+			}
+			break;
 		// Instruction IRET
-		case IRET_INST: // Return from a interrupt handle manager call
-			registerPC_CPU=Processor_CopyFromSystemStack(MAINMEMORYSIZE-1);
-			registerPSW_CPU=Processor_CopyFromSystemStack(MAINMEMORYSIZE-2);
-			break;		
+		case IRET_INST: 
+			if (Processor_PSW_BitState(EXECUTION_MODE_BIT) != 1) {
+				Processor_RaiseInterrupt(EXCEPTION_BIT);
+			} else {
+				// Return from a interrupt handle manager call
+				registerPC_CPU=Processor_CopyFromSystemStack(MAINMEMORYSIZE-1);
+				registerPSW_CPU=Processor_CopyFromSystemStack(MAINMEMORYSIZE-2);
+				break;
+			}
+			break;	
 
 		// Unknown instruction
 		default : 

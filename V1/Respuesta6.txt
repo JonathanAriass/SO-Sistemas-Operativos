@@ -1,0 +1,1 @@
+Lo ahce debido a que el tamaño del proceso es mas grande que el tamaño de la memoria.

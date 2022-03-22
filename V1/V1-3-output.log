@@ -1,29 +1,29 @@
 30 messages loaded from file messagesTCH.txt
-12 messages loaded from file messagesSTD.txt
+14 messages loaded from file messagesSTD.txt
 0 Asserts Loaded
 User progam list:
 	Program [programV1-3a] with arrival time [0]
 	Program [programV1-3b] with arrival time [0]
 	Program [programV1-3c] with arrival time [0]
-New process [3-SystemIdleProcess] moving to the [NEW] state
+New process [3 - SystemIdleProcess] moving to the [NEW] state
 Process [3] created from program [SystemIdleProcess]
 Process [3 - SystemIdleProcess] moving from the [NEW] state to the [READY] state
 Ready-to-run processes queue:
-	USER: [0,0]
+	USER: 
 	DAEMONS: [3,100]
-New process [0-programV1-3a] moving to the [NEW] state
+New process [0 - programV1-3a] moving to the [NEW] state
 Process [0] created from program [programV1-3a]
 Process [0 - programV1-3a] moving from the [NEW] state to the [READY] state
 Ready-to-run processes queue:
 	USER: [0,10]
 	DAEMONS: [3,100]
-New process [1-programV1-3b] moving to the [NEW] state
+New process [1 - programV1-3b] moving to the [NEW] state
 Process [1] created from program [programV1-3b]
 Process [1 - programV1-3b] moving from the [NEW] state to the [READY] state
 Ready-to-run processes queue:
 	USER: [0,10], [1,10]
 	DAEMONS: [3,100]
-New process [2-programV1-3c] moving to the [NEW] state
+New process [2 - programV1-3c] moving to the [NEW] state
 Process [2] created from program [programV1-3c]
 Process [2 - programV1-3c] moving from the [NEW] state to the [READY] state
 Ready-to-run processes queue:
@@ -43,7 +43,7 @@ Process [2 - programV1-3c] has requested to terminate
 Process [2 - programV1-3c] moving from the [EXECUTING] state to the [EXIT] state
 Process [0 - programV1-3a] moving from the [READY] state to the [EXECUTING] state
 New Tick (6)
-{0D 000 000} IRET 0 0 (PC: 0, Accumulator: 15, PSW: 0000 [----------------])
+{0D 000 000} IRET 0 0 (PC: 0, Accumulator: 0, PSW: 0002 [--------------Z-])
 New Tick (7)
 {01 014 00A} ADD 20 10 (PC: 1, Accumulator: 30, PSW: 0000 [----------------])
 New Tick (8)
@@ -51,25 +51,37 @@ New Tick (8)
 New Tick (9)
 {0C 002 000} OS 2 0 (PC: 242, Accumulator: 30, PSW: 0080 [--------X-------])
 New Tick (10)
+Process [0 - programV1-3a] will transfer the control of the processor to process [1 - programV1-3b]
+Process [0 - programV1-3a] moving from the [EXECUTING] state to the [READY] state
+Ready-to-run processes queue:
+	USER: [1,10], [0,10]
+	DAEMONS: [3,100]
+Process [1 - programV1-3b] moving from the [READY] state to the [EXECUTING] state
 New Tick (11)
-{0D 000 000} IRET 0 0 (PC: 2, Accumulator: 30, PSW: 0000 [----------------])
+{0D 000 000} IRET 0 0 (PC: 0, Accumulator: 0, PSW: 0002 [--------------Z-])
 New Tick (12)
-{04 003 000} TRAP 3 0 (PC: 3, Accumulator: 30, PSW: 0000 [----------------])
+{01 01E 00A} ADD 30 10 (PC: 1, Accumulator: 40, PSW: 0000 [----------------])
 New Tick (13)
-{0C 002 000} OS 2 0 (PC: 242, Accumulator: 30, PSW: 0080 [--------X-------])
+{04 004 000} TRAP 4 0 (PC: 2, Accumulator: 40, PSW: 0000 [----------------])
 New Tick (14)
+{0C 002 000} OS 2 0 (PC: 242, Accumulator: 40, PSW: 0080 [--------X-------])
+New Tick (15)
+Process [1 - programV1-3b] will transfer the control of the processor to process [0 - programV1-3a]
+Process [1 - programV1-3b] moving from the [EXECUTING] state to the [READY] state
+Ready-to-run processes queue:
+	USER: [0,10], [1,10]
+	DAEMONS: [3,100]
+Process [0 - programV1-3a] moving from the [READY] state to the [EXECUTING] state
+New Tick (16)
+{0D 000 000} IRET 0 0 (PC: 2, Accumulator: 30, PSW: 0000 [----------------])
+New Tick (17)
+{04 003 000} TRAP 3 0 (PC: 3, Accumulator: 30, PSW: 0000 [----------------])
+New Tick (18)
+{0C 002 000} OS 2 0 (PC: 242, Accumulator: 30, PSW: 0080 [--------X-------])
+New Tick (19)
 Process [0 - programV1-3a] has requested to terminate
 Process [0 - programV1-3a] moving from the [EXECUTING] state to the [EXIT] state
 Process [1 - programV1-3b] moving from the [READY] state to the [EXECUTING] state
-New Tick (15)
-{0D 000 000} IRET 0 0 (PC: 0, Accumulator: 30, PSW: 0000 [----------------])
-New Tick (16)
-{01 01E 00A} ADD 30 10 (PC: 1, Accumulator: 40, PSW: 0000 [----------------])
-New Tick (17)
-{04 004 000} TRAP 4 0 (PC: 2, Accumulator: 40, PSW: 0000 [----------------])
-New Tick (18)
-{0C 002 000} OS 2 0 (PC: 242, Accumulator: 40, PSW: 0080 [--------X-------])
-New Tick (19)
 New Tick (20)
 {0D 000 000} IRET 0 0 (PC: 2, Accumulator: 40, PSW: 0000 [----------------])
 New Tick (21)
@@ -91,17 +103,17 @@ Process [1 - programV1-3b] has requested to terminate
 Process [1 - programV1-3b] moving from the [EXECUTING] state to the [EXIT] state
 Process [3 - SystemIdleProcess] moving from the [READY] state to the [EXECUTING] state
 New Tick (29)
-{0D 000 000} IRET 0 0 (PC: 183, Accumulator: 40, PSW: 0080 [--------X-------])
+{0D 000 000} IRET 0 0 (PC: 183, Accumulator: 0, PSW: 0082 [--------X-----Z-])
 New Tick (30)
-{04 003 000} TRAP 3 0 (PC: 184, Accumulator: 40, PSW: 0080 [--------X-------])
+{04 003 000} TRAP 3 0 (PC: 184, Accumulator: 0, PSW: 0082 [--------X-----Z-])
 New Tick (31)
-{0C 002 000} OS 2 0 (PC: 242, Accumulator: 40, PSW: 0080 [--------X-------])
+{0C 002 000} OS 2 0 (PC: 242, Accumulator: 0, PSW: 0082 [--------X-----Z-])
 New Tick (32)
 Process [3 - SystemIdleProcess] has requested to terminate
 Process [3 - SystemIdleProcess] moving from the [EXECUTING] state to the [EXIT] state
 The system will shut down now...
 New Tick (33)
-{0D 000 000} IRET 0 0 (PC: 241, Accumulator: 40, PSW: 0080 [--------X-------])
+{0D 000 000} IRET 0 0 (PC: 241, Accumulator: 0, PSW: 0082 [--------X-----Z-])
 New Tick (34)
-{0B 000 000} HALT 0 0 (PC: 241, Accumulator: 40, PSW: 0081 [--------X------S])
+{0B 000 000} HALT 0 0 (PC: 241, Accumulator: 0, PSW: 0083 [--------X-----ZS])
 END of the simulation

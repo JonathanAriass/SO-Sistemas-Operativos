@@ -1,0 +1,3 @@
+Cuando se ejecuta dicho metodo primero de todo se comprueba si el proceso que se esta ejecutando es de usuario o no. En caso de ser usuario se termina sin mas.
+En caso de ser el SystemIdleProcess el que se este ejecutando pueden ocurrir dos cosas. Si el SystemIdleProcess ya se esta ejecutando se termina, en caso de que no
+se este ejecutando se ajusta la direccion del PC a la instruccion TRAP 3. Despues de esto se apagaria el sistema.

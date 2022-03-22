@@ -1,0 +1,1 @@
+Se crearia un bucle, ya que el sistema no esta preparado para soportar mas entrada de procesos que tamaño de tabla de procesos.
