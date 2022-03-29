@@ -1,0 +1,1 @@
+b) Se activa cuando hay una interrupcion y se desactiva despues de tratar dicha interrupcion.

@@ -1,0 +1,146 @@
+34 messages loaded from file messagesTCH.txt
+14 messages loaded from file messagesSTD.txt
+0 Asserts Loaded
+User progam list:
+	Program [programV2-1a] with arrival time [0]
+	Program [programV2-1b] with arrival time [0]
+	[0] New process [3 - SystemIdleProcess] moving to the [NEW] state
+	[0] Process [3] created from program [SystemIdleProcess]
+	[0] Process [3 - SystemIdleProcess] moving from the [NEW] state to the [READY] state
+	[0] Ready-to-run processes queue:
+		USER: 
+		DAEMONS: [3,100]
+	[0] New process [0 - programV2-1a] moving to the [NEW] state
+	[0] Process [0] created from program [programV2-1a]
+	[0] Process [0 - programV2-1a] moving from the [NEW] state to the [READY] state
+	[0] Ready-to-run processes queue:
+		USER: [0,33]
+		DAEMONS: [3,100]
+	[0] New process [1 - programV2-1b] moving to the [NEW] state
+	[0] Process [1] created from program [programV2-1b]
+	[0] Process [1 - programV2-1b] moving from the [NEW] state to the [READY] state
+	[0] Ready-to-run processes queue:
+		USER: [0,33], [1,33]
+		DAEMONS: [3,100]
+	[0] Process [0 - programV2-1a] moving from the [READY] state to the [EXECUTING] state
+Debug Message 97 not defined
+[1] {0D 000 000} IRET 0 0 (PC: 0, Accumulator: 0, PSW: 0002 [--------------Z-])
+Debug Message 97 not defined
+[2] {01 000 802} ADD 0 -2 (PC: 1, Accumulator: -2, PSW: 0004 [-------------N--])
+Debug Message 97 not defined
+[3] {0A 001 000} INC 1 0 (PC: 2, Accumulator: -1, PSW: 0004 [-------------N--])
+Debug Message 97 not defined
+[4] {04 004 000} TRAP 4 0 (PC: 3, Accumulator: -1, PSW: 0004 [-------------N--])
+Debug Message 97 not defined
+Debug Message 97 not defined
+[6] {0C 002 000} OS 2 0 (PC: 242, Accumulator: -1, PSW: 8084 [M-------X----N--])
+Debug Message 97 not defined
+	[7] Process [0 - programV2-1a] will transfer the control of the processor to process [1 - programV2-1b]
+	[7] Process [0 - programV2-1a] moving from the [EXECUTING] state to the [READY] state
+	[7] Ready-to-run processes queue:
+		USER: [1,33], [0,33]
+		DAEMONS: [3,100]
+	[7] Process [1 - programV2-1b] moving from the [READY] state to the [EXECUTING] state
+Debug Message 97 not defined
+[8] {0D 000 000} IRET 0 0 (PC: 0, Accumulator: 0, PSW: 0002 [--------------Z-])
+Debug Message 97 not defined
+[9] {01 002 000} ADD 2 0 (PC: 1, Accumulator: 2, PSW: 0000 [----------------])
+Debug Message 97 not defined
+Debug Message 97 not defined
+[11] {0A 801 000} INC -1 0 (PC: 2, Accumulator: 1, PSW: 0000 [----------------])
+Debug Message 97 not defined
+[12] {04 004 000} TRAP 4 0 (PC: 3, Accumulator: 1, PSW: 0000 [----------------])
+Debug Message 97 not defined
+[13] {0C 002 000} OS 2 0 (PC: 242, Accumulator: 1, PSW: 8080 [M-------X-------])
+Debug Message 97 not defined
+	[14] Process [1 - programV2-1b] will transfer the control of the processor to process [0 - programV2-1a]
+	[14] Process [1 - programV2-1b] moving from the [EXECUTING] state to the [READY] state
+	[14] Ready-to-run processes queue:
+		USER: [0,33], [1,33]
+		DAEMONS: [3,100]
+	[14] Process [0 - programV2-1a] moving from the [READY] state to the [EXECUTING] state
+Debug Message 97 not defined
+Debug Message 97 not defined
+[16] {0D 000 000} IRET 0 0 (PC: 3, Accumulator: -1, PSW: 0004 [-------------N--])
+Debug Message 97 not defined
+[17] {07 002 000} ZJUMP 2 0 (PC: 4, Accumulator: -1, PSW: 0004 [-------------N--])
+Debug Message 97 not defined
+[18] {06 803 000} JUMP -3 0 (PC: 1, Accumulator: -1, PSW: 0004 [-------------N--])
+Debug Message 97 not defined
+[19] {0A 001 000} INC 1 0 (PC: 2, Accumulator: 0, PSW: 0002 [--------------Z-])
+Debug Message 97 not defined
+Debug Message 97 not defined
+[21] {04 004 000} TRAP 4 0 (PC: 3, Accumulator: 0, PSW: 0002 [--------------Z-])
+Debug Message 97 not defined
+[22] {0C 002 000} OS 2 0 (PC: 242, Accumulator: 0, PSW: 8082 [M-------X-----Z-])
+Debug Message 97 not defined
+	[23] Process [0 - programV2-1a] will transfer the control of the processor to process [1 - programV2-1b]
+	[23] Process [0 - programV2-1a] moving from the [EXECUTING] state to the [READY] state
+	[23] Ready-to-run processes queue:
+		USER: [1,33], [0,33]
+		DAEMONS: [3,100]
+	[23] Process [1 - programV2-1b] moving from the [READY] state to the [EXECUTING] state
+Debug Message 97 not defined
+[24] {0D 000 000} IRET 0 0 (PC: 3, Accumulator: 1, PSW: 0000 [----------------])
+Debug Message 97 not defined
+Debug Message 97 not defined
+[26] {07 002 000} ZJUMP 2 0 (PC: 4, Accumulator: 1, PSW: 0000 [----------------])
+Debug Message 97 not defined
+[27] {06 803 000} JUMP -3 0 (PC: 1, Accumulator: 1, PSW: 0000 [----------------])
+Debug Message 97 not defined
+[28] {0A 801 000} INC -1 0 (PC: 2, Accumulator: 0, PSW: 0002 [--------------Z-])
+Debug Message 97 not defined
+[29] {04 004 000} TRAP 4 0 (PC: 3, Accumulator: 0, PSW: 0002 [--------------Z-])
+Debug Message 97 not defined
+Debug Message 97 not defined
+[31] {0C 002 000} OS 2 0 (PC: 242, Accumulator: 0, PSW: 8082 [M-------X-----Z-])
+Debug Message 97 not defined
+	[32] Process [1 - programV2-1b] will transfer the control of the processor to process [0 - programV2-1a]
+	[32] Process [1 - programV2-1b] moving from the [EXECUTING] state to the [READY] state
+	[32] Ready-to-run processes queue:
+		USER: [0,33], [1,33]
+		DAEMONS: [3,100]
+	[32] Process [0 - programV2-1a] moving from the [READY] state to the [EXECUTING] state
+Debug Message 97 not defined
+[33] {0D 000 000} IRET 0 0 (PC: 3, Accumulator: 0, PSW: 0002 [--------------Z-])
+Debug Message 97 not defined
+[34] {07 002 000} ZJUMP 2 0 (PC: 5, Accumulator: 0, PSW: 0002 [--------------Z-])
+Debug Message 97 not defined
+Debug Message 97 not defined
+[36] {04 003 000} TRAP 3 0 (PC: 6, Accumulator: 0, PSW: 0002 [--------------Z-])
+Debug Message 97 not defined
+[37] {0C 002 000} OS 2 0 (PC: 242, Accumulator: 0, PSW: 8082 [M-------X-----Z-])
+Debug Message 97 not defined
+	[38] Process [0 - programV2-1a] has requested to terminate
+	[38] Process [0 - programV2-1a] moving from the [EXECUTING] state to the [EXIT] state
+	[38] Process [1 - programV2-1b] moving from the [READY] state to the [EXECUTING] state
+Debug Message 97 not defined
+[39] {0D 000 000} IRET 0 0 (PC: 3, Accumulator: 0, PSW: 0002 [--------------Z-])
+Debug Message 97 not defined
+Debug Message 97 not defined
+[41] {07 002 000} ZJUMP 2 0 (PC: 5, Accumulator: 0, PSW: 0002 [--------------Z-])
+Debug Message 97 not defined
+[42] {04 003 000} TRAP 3 0 (PC: 6, Accumulator: 0, PSW: 0002 [--------------Z-])
+Debug Message 97 not defined
+[43] {0C 002 000} OS 2 0 (PC: 242, Accumulator: 0, PSW: 8082 [M-------X-----Z-])
+Debug Message 97 not defined
+	[44] Process [1 - programV2-1b] has requested to terminate
+	[44] Process [1 - programV2-1b] moving from the [EXECUTING] state to the [EXIT] state
+	[44] Process [3 - SystemIdleProcess] moving from the [READY] state to the [EXECUTING] state
+Debug Message 97 not defined
+Debug Message 97 not defined
+[46] {0D 000 000} IRET 0 0 (PC: 183, Accumulator: 0, PSW: 0082 [--------X-----Z-])
+Debug Message 97 not defined
+[47] {04 003 000} TRAP 3 0 (PC: 184, Accumulator: 0, PSW: 0082 [--------X-----Z-])
+Debug Message 97 not defined
+[48] {0C 002 000} OS 2 0 (PC: 242, Accumulator: 0, PSW: 8082 [M-------X-----Z-])
+Debug Message 97 not defined
+	[49] Process [3 - SystemIdleProcess] has requested to terminate
+	[49] Process [3 - SystemIdleProcess] moving from the [EXECUTING] state to the [EXIT] state
+	[49] The system will shut down now...
+Debug Message 97 not defined
+Debug Message 97 not defined
+[51] {0D 000 000} IRET 0 0 (PC: 241, Accumulator: 0, PSW: 0082 [--------X-----Z-])
+Debug Message 97 not defined
+[52] {0B 000 000} HALT 0 0 (PC: 241, Accumulator: 0, PSW: 0083 [--------X-----ZS])
+[52] END of the simulation
