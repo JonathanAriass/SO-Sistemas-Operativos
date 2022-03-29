@@ -41,6 +41,7 @@ void Processor_InitializeInterruptVectorTable(int interruptVectorInitialAddress)
 
 	interruptVectorTable[SYSCALL_BIT]=interruptVectorInitialAddress;  // SYSCALL_BIT=2
 	interruptVectorTable[EXCEPTION_BIT]=interruptVectorInitialAddress+2; // EXCEPTION_BIT=6
+	interruptVectorTable[CLOCKINT_BIT]=interruptVectorInitialAddress+4;
 }
 
 // Fetch an instruction from main memory and put it in the IR register
@@ -250,9 +251,10 @@ void Processor_DecodeAndExecuteInstruction() {
 void Processor_ManageInterrupts() {
   
 	int i;
-
-
-	if (Processor_PSW_BitState(INTERRUPT_MASKED_BIT) != 15) {
+	
+	//Si está activo este bit el INTERRUPT_MASKED_BIT, siginifica que se está tratando una interrupción 
+	//por tanto no probamos con otra 
+	if(Processor_PSW_BitState(INTERRUPT_MASKED_BIT) == 0){
 		for (i=0;i<INTERRUPTTYPES;i++)
 			// If an 'i'-type interrupt is pending
 			if (Processor_GetInterruptLineStatus(i)) {
@@ -260,10 +262,9 @@ void Processor_ManageInterrupts() {
 				Processor_ACKInterrupt(i);
 				// Copy PC and PSW registers in the system stack
 				Processor_CopyInSystemStack(MAINMEMORYSIZE-1, registerPC_CPU);
-				Processor_CopyInSystemStack(MAINMEMORYSIZE-2, registerPSW_CPU);
-
+				Processor_CopyInSystemStack(MAINMEMORYSIZE-2, registerPSW_CPU);	
+				//Activamos el bit de INTERRUPT_MASKED_BIT para que con la siguiente interrupcion no entre 
 				Processor_ActivatePSW_Bit(INTERRUPT_MASKED_BIT);
-
 				// Activate protected excution mode
 				Processor_ActivatePSW_Bit(EXECUTION_MODE_BIT);
 				// Call the appropriate OS interrupt-handling routine setting PC register

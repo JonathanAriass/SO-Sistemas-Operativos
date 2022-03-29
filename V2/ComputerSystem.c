@@ -9,11 +9,13 @@
 #include "Wrappers.h"
 
 // Functions prototypes
-static void ComputerSystem_PrintProgramList();
+void ComputerSystem_PrintProgramList();
 
 // Powers on of the Computer System.
 void ComputerSystem_PowerOn(int argc, char *argv[], int paramIndex) {
-
+	
+	
+	
 	// Obtain a list of programs in the command line
 	int daemonsBaseIndex = ComputerSystem_ObtainProgramList(argc, argv, paramIndex);
 
@@ -21,35 +23,32 @@ void ComputerSystem_PowerOn(int argc, char *argv[], int paramIndex) {
 	int nm=0;
 	nm=Messages_Load_Messages(nm,TEACHER_MESSAGES_FILE);
 	if (nm<0) {
-		ComputerSystem_ShowTime(SHUTDOWN);
-		ComputerSystem_DebugMessage(64,SHUTDOWN,TEACHER_MESSAGES_FILE);
+		ComputerSystem_ShowTime(SHUTDOWN);ComputerSystem_DebugMessage(64,SHUTDOWN,TEACHER_MESSAGES_FILE);
 		exit(2);
 	}
 	nm=Messages_Load_Messages(nm,STUDENT_MESSAGES_FILE);
-
 	// Prepare if necesary the assert system
 	Asserts_LoadAsserts();
 	
-	// Print program list
-	ComputerSystem_PrintProgramList();	
 	
 	// Request the OS to do the initial set of tasks. The last one will be
 	// the processor allocation to the process with the highest priority
-	OperatingSystem_Initialize(daemonsBaseIndex);
-
+	ComputerSystem_PrintProgramList();
+	OperatingSystem_Initialize(daemonsBaseIndex);	
 	
 	// Tell the processor to begin its instruction cycle 
 	Processor_InstructionCycleLoop();
 	
 }
 
+
 // Powers off the CS (the C program ends)
 void ComputerSystem_PowerOff() {
 	// Show message in red colour: "END of the simulation\n" 
-	ComputerSystem_ShowTime(SHUTDOWN);
-	ComputerSystem_DebugMessage(99,SHUTDOWN,"END of the simulation\n"); 
+	ComputerSystem_ShowTime(SHUTDOWN);ComputerSystem_DebugMessage(99,SHUTDOWN,"END of the simulation\n"); 
 	exit(0);
 }
+
 
 /////////////////////////////////////////////////////////
 //  New functions below this line  //////////////////////

@@ -58,6 +58,11 @@ char DAEMONS_PROGRAMS_FILE[MAXIMUMLENGTH]="teachersDaemons";
 
 char * statesNames [5]={"NEW","READY","EXECUTING","BLOCKED","EXIT"};
 
+int numberOfClockInterrupts = 0;
+
+heapItem sleepingProcessesQueue[PROCESSTABLEMAXSIZE];
+int numberOfSleepingProcesses=0;
+
 // Initial set of tasks of the OS
 void OperatingSystem_Initialize(int daemonsIndex) {
 	
@@ -267,6 +272,17 @@ void OperatingSystem_MoveToTheREADYState(int PID) {
 	OperatingSystem_PrintReadyToRunQueue();
 }
 
+void OperatingSystem_MoveToTheBLOCKEDState(int PID) {
+	int previousState = processTable[PID].state;
+	int aux = abs(Processor_GetAccumulator()) + numberOfClockInterrupts + 1;
+	if (Heap_add(PID, sleepingProcessesQueue,QUEUE_WAKEUP , &numberOfSleepingProcesses,PROCESSTABLEMAXSIZE)>=0) {
+		processTable[PID].state=BLOCKED;
+		processTable[PID].whenToWakeUp = aux;
+		OperatingSystem_ShowTime(SYSPROC);
+		ComputerSystem_DebugMessage(110,SYSPROC,PID,programList[processTable[PID].programListIndex]->executableName,statesNames[previousState],statesNames[1]);
+	} 
+	OperatingSystem_PrintReadyToRunQueue();
+}
 
 // The STS is responsible of deciding which process to execute when specific events occur.
 // It uses processes priorities to make the decission. Given that the READY queue is ordered
@@ -439,6 +455,11 @@ void OperatingSystem_HandleSystemCall() {
 				OperatingSystem_Dispatch(OperatingSystem_ShortTermScheduler());
 			}
 			break;
+		case SYSCALL_SLEEP:
+			OperatingSystem_MoveToTheBLOCKEDState(executingProcessID);
+			OperatingSystem_Dispatch(OperatingSystem_ShortTermScheduler());
+			OperatingSystem_PrintStatus();
+			break;
 	}
 }
 	
@@ -452,6 +473,7 @@ void OperatingSystem_InterruptLogic(int entryPoint){
 			OperatingSystem_HandleException();
 			break;
 		case CLOCKINT_BIT: // CLOCKINT_BIT=9
+			numberOfClockInterrupts++;
 			OperatingSystem_HandleClockInterrupt();
 			break;
 	}
@@ -504,7 +526,17 @@ void OperatingSystem_PrintReadyToRunQueue() {
 
 }
 
-void OperatingSystem_HandleClockInterrupt(){ return; }
+
+
+void OperatingSystem_HandleClockInterrupt(){ 
+	OperatingSystem_ShowTime(INTERRUPT);
+	ComputerSystem_DebugMessage(120,INTERRUPT,numberOfClockInterrupts);
+
+	
+
+	return; 	
+}
+
 
 
 

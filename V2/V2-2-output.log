@@ -1,0 +1,1000 @@
+34 messages loaded from file messagesTCH.txt
+15 messages loaded from file messagesSTD.txt
+0 Asserts Loaded
+User progam list:
+	Program [programV2-2b] with arrival time [0]
+	[0] New process [3 - SystemIdleProcess] moving to the [NEW] state
+	[0] Process [3] created from program [SystemIdleProcess]
+	[0] Process [3 - SystemIdleProcess] moving from the [NEW] state to the [READY] state
+	[0] Ready-to-run processes queue:
+		USER: 
+		DAEMONS: [3,100]
+	[0] New process [0 - programV2-2b] moving to the [NEW] state
+	[0] Process [0] created from program [programV2-2b]
+	[0] Process [0 - programV2-2b] moving from the [NEW] state to the [READY] state
+	[0] Ready-to-run processes queue:
+		USER: [0,999]
+		DAEMONS: [3,100]
+	[0] Process [0 - programV2-2b] moving from the [READY] state to the [EXECUTING] state
+[1] {0D 000 000} IRET 0 0 (PC: 0, Accumulator: 0, PSW: 0002 [--------------Z-])
+[2] {01 002 000} ADD 2 0 (PC: 1, Accumulator: 2, PSW: 0000 [----------------])
+[3] {0A 801 000} INC -1 0 (PC: 2, Accumulator: 1, PSW: 0000 [----------------])
+[4] {07 002 000} ZJUMP 2 0 (PC: 3, Accumulator: 1, PSW: 0000 [----------------])
+[5] {06 802 000} JUMP -2 0 (PC: 1, Accumulator: 1, PSW: 0000 [----------------])
+[6] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 1, PSW: 8080 [M-------X-------])
+	[7] Clock interrupt number [1] has ocurred
+[8] {0D 000 000} IRET 0 0 (PC: 1, Accumulator: 1, PSW: 0000 [----------------])
+[9] {0A 801 000} INC -1 0 (PC: 2, Accumulator: 0, PSW: 0002 [--------------Z-])
+[10] {07 002 000} ZJUMP 2 0 (PC: 4, Accumulator: 0, PSW: 0002 [--------------Z-])
+[11] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 0, PSW: 8082 [M-------X-----Z-])
+	[12] Clock interrupt number [2] has ocurred
+[13] {0D 000 000} IRET 0 0 (PC: 4, Accumulator: 0, PSW: 0002 [--------------Z-])
+[14] {0A 001 000} INC 1 0 (PC: 5, Accumulator: 1, PSW: 0000 [----------------])
+[15] {04 007 000} TRAP 7 0 (PC: 6, Accumulator: 1, PSW: 0000 [----------------])
+[16] {0C 002 000} OS 2 0 (PC: 242, Accumulator: 1, PSW: 8080 [M-------X-------])
+	[17] Process [0 - programV2-2b] moving from the [EXECUTING] state to the [READY] state
+	[17] Ready-to-run processes queue:
+		USER: 
+		DAEMONS: [3,100]
+	[17] Process [3 - SystemIdleProcess] moving from the [READY] state to the [EXECUTING] state
+	[17] Running Process Information:
+		[PID: 3, Priority: 100, WakeUp: 0, Queue: DAEMONS]
+	[17] Ready-to-run processes queue:
+		USER: 
+		DAEMONS: 
+	[17] SLEEPING Queue:
+		[0, 999, 4]
+	[17] PID association with program's name:
+		PID: 0 -> programV2-2b
+		PID: 3 -> SystemIdleProcess
+[18] {0D 000 000} IRET 0 0 (PC: 180, Accumulator: 0, PSW: 0082 [--------X-----Z-])
+[19] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 0, PSW: 8082 [M-------X-----Z-])
+	[20] Clock interrupt number [3] has ocurred
+[21] {0D 000 000} IRET 0 0 (PC: 180, Accumulator: 0, PSW: 0082 [--------X-----Z-])
+[22] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 0, PSW: 8082 [M-------X-----Z-])
+	[23] Clock interrupt number [4] has ocurred
+[24] {0D 000 000} IRET 0 0 (PC: 180, Accumulator: 0, PSW: 0082 [--------X-----Z-])
+[25] {01 57C 2CE} ADD 1404 718 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[26] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[27] Clock interrupt number [5] has ocurred
+[28] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[29] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[30] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[31] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[32] Clock interrupt number [6] has ocurred
+[33] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[34] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[35] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[36] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[37] Clock interrupt number [7] has ocurred
+[38] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[39] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[40] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[41] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[42] Clock interrupt number [8] has ocurred
+[43] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[44] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[45] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[46] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[47] Clock interrupt number [9] has ocurred
+[48] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[49] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[50] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[51] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[52] Clock interrupt number [10] has ocurred
+[53] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[54] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[55] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[56] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[57] Clock interrupt number [11] has ocurred
+[58] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[59] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[60] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[61] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[62] Clock interrupt number [12] has ocurred
+[63] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[64] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[65] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[66] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[67] Clock interrupt number [13] has ocurred
+[68] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[69] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[70] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[71] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[72] Clock interrupt number [14] has ocurred
+[73] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[74] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[75] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[76] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[77] Clock interrupt number [15] has ocurred
+[78] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[79] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[80] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[81] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[82] Clock interrupt number [16] has ocurred
+[83] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[84] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[85] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[86] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[87] Clock interrupt number [17] has ocurred
+[88] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[89] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[90] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[91] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[92] Clock interrupt number [18] has ocurred
+[93] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[94] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[95] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[96] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[97] Clock interrupt number [19] has ocurred
+[98] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[99] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[100] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[101] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[102] Clock interrupt number [20] has ocurred
+[103] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[104] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[105] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[106] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[107] Clock interrupt number [21] has ocurred
+[108] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[109] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[110] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[111] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[112] Clock interrupt number [22] has ocurred
+[113] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[114] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[115] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[116] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[117] Clock interrupt number [23] has ocurred
+[118] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[119] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[120] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[121] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[122] Clock interrupt number [24] has ocurred
+[123] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[124] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[125] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[126] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[127] Clock interrupt number [25] has ocurred
+[128] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[129] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[130] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[131] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[132] Clock interrupt number [26] has ocurred
+[133] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[134] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[135] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[136] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[137] Clock interrupt number [27] has ocurred
+[138] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[139] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[140] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[141] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[142] Clock interrupt number [28] has ocurred
+[143] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[144] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[145] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[146] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[147] Clock interrupt number [29] has ocurred
+[148] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[149] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[150] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[151] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[152] Clock interrupt number [30] has ocurred
+[153] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[154] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[155] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[156] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[157] Clock interrupt number [31] has ocurred
+[158] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[159] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[160] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[161] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[162] Clock interrupt number [32] has ocurred
+[163] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[164] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[165] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[166] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[167] Clock interrupt number [33] has ocurred
+[168] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[169] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[170] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[171] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[172] Clock interrupt number [34] has ocurred
+[173] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[174] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[175] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[176] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[177] Clock interrupt number [35] has ocurred
+[178] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[179] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[180] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[181] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[182] Clock interrupt number [36] has ocurred
+[183] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[184] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[185] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[186] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[187] Clock interrupt number [37] has ocurred
+[188] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[189] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[190] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[191] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[192] Clock interrupt number [38] has ocurred
+[193] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[194] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[195] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[196] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[197] Clock interrupt number [39] has ocurred
+[198] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[199] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[200] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[201] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[202] Clock interrupt number [40] has ocurred
+[203] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[204] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[205] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[206] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[207] Clock interrupt number [41] has ocurred
+[208] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[209] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[210] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[211] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[212] Clock interrupt number [42] has ocurred
+[213] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[214] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[215] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[216] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[217] Clock interrupt number [43] has ocurred
+[218] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[219] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[220] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[221] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[222] Clock interrupt number [44] has ocurred
+[223] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[224] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[225] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[226] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[227] Clock interrupt number [45] has ocurred
+[228] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[229] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[230] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[231] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[232] Clock interrupt number [46] has ocurred
+[233] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[234] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[235] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[236] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[237] Clock interrupt number [47] has ocurred
+[238] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[239] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[240] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[241] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[242] Clock interrupt number [48] has ocurred
+[243] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[244] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[245] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[246] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[247] Clock interrupt number [49] has ocurred
+[248] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[249] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[250] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[251] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[252] Clock interrupt number [50] has ocurred
+[253] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[254] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[255] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[256] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[257] Clock interrupt number [51] has ocurred
+[258] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[259] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[260] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[261] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[262] Clock interrupt number [52] has ocurred
+[263] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[264] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[265] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[266] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[267] Clock interrupt number [53] has ocurred
+[268] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[269] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[270] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[271] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[272] Clock interrupt number [54] has ocurred
+[273] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[274] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[275] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[276] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[277] Clock interrupt number [55] has ocurred
+[278] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[279] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[280] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[281] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[282] Clock interrupt number [56] has ocurred
+[283] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[284] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[285] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[286] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[287] Clock interrupt number [57] has ocurred
+[288] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[289] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[290] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[291] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[292] Clock interrupt number [58] has ocurred
+[293] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[294] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[295] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[296] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[297] Clock interrupt number [59] has ocurred
+[298] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[299] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[300] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[301] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[302] Clock interrupt number [60] has ocurred
+[303] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[304] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[305] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[306] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[307] Clock interrupt number [61] has ocurred
+[308] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[309] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[310] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[311] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[312] Clock interrupt number [62] has ocurred
+[313] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[314] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[315] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[316] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[317] Clock interrupt number [63] has ocurred
+[318] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[319] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[320] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[321] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[322] Clock interrupt number [64] has ocurred
+[323] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[324] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[325] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[326] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[327] Clock interrupt number [65] has ocurred
+[328] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[329] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[330] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[331] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[332] Clock interrupt number [66] has ocurred
+[333] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[334] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[335] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[336] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[337] Clock interrupt number [67] has ocurred
+[338] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[339] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[340] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[341] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[342] Clock interrupt number [68] has ocurred
+[343] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[344] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[345] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[346] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[347] Clock interrupt number [69] has ocurred
+[348] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[349] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[350] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[351] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[352] Clock interrupt number [70] has ocurred
+[353] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[354] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[355] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[356] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[357] Clock interrupt number [71] has ocurred
+[358] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[359] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[360] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[361] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[362] Clock interrupt number [72] has ocurred
+[363] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[364] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[365] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[366] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[367] Clock interrupt number [73] has ocurred
+[368] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[369] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[370] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[371] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[372] Clock interrupt number [74] has ocurred
+[373] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[374] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[375] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[376] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[377] Clock interrupt number [75] has ocurred
+[378] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[379] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[380] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[381] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[382] Clock interrupt number [76] has ocurred
+[383] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[384] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[385] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[386] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[387] Clock interrupt number [77] has ocurred
+[388] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[389] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[390] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[391] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[392] Clock interrupt number [78] has ocurred
+[393] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[394] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[395] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[396] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[397] Clock interrupt number [79] has ocurred
+[398] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[399] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[400] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[401] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[402] Clock interrupt number [80] has ocurred
+[403] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[404] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[405] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[406] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[407] Clock interrupt number [81] has ocurred
+[408] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[409] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[410] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[411] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[412] Clock interrupt number [82] has ocurred
+[413] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[414] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[415] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[416] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[417] Clock interrupt number [83] has ocurred
+[418] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[419] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[420] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[421] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[422] Clock interrupt number [84] has ocurred
+[423] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[424] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[425] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[426] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[427] Clock interrupt number [85] has ocurred
+[428] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[429] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[430] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[431] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[432] Clock interrupt number [86] has ocurred
+[433] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[434] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[435] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[436] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[437] Clock interrupt number [87] has ocurred
+[438] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[439] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[440] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[441] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[442] Clock interrupt number [88] has ocurred
+[443] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[444] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[445] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[446] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[447] Clock interrupt number [89] has ocurred
+[448] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[449] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[450] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[451] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[452] Clock interrupt number [90] has ocurred
+[453] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[454] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[455] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[456] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[457] Clock interrupt number [91] has ocurred
+[458] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[459] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[460] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[461] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[462] Clock interrupt number [92] has ocurred
+[463] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[464] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[465] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[466] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[467] Clock interrupt number [93] has ocurred
+[468] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[469] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[470] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[471] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[472] Clock interrupt number [94] has ocurred
+[473] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[474] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[475] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[476] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[477] Clock interrupt number [95] has ocurred
+[478] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[479] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[480] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[481] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[482] Clock interrupt number [96] has ocurred
+[483] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[484] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[485] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[486] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[487] Clock interrupt number [97] has ocurred
+[488] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[489] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[490] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[491] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[492] Clock interrupt number [98] has ocurred
+[493] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[494] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[495] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[496] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[497] Clock interrupt number [99] has ocurred
+[498] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[499] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[500] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[501] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[502] Clock interrupt number [100] has ocurred
+[503] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[504] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[505] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[506] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[507] Clock interrupt number [101] has ocurred
+[508] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[509] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[510] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[511] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[512] Clock interrupt number [102] has ocurred
+[513] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[514] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[515] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[516] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[517] Clock interrupt number [103] has ocurred
+[518] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[519] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[520] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[521] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[522] Clock interrupt number [104] has ocurred
+[523] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[524] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[525] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[526] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[527] Clock interrupt number [105] has ocurred
+[528] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[529] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[530] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[531] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[532] Clock interrupt number [106] has ocurred
+[533] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[534] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[535] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[536] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[537] Clock interrupt number [107] has ocurred
+[538] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[539] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[540] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[541] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[542] Clock interrupt number [108] has ocurred
+[543] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[544] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[545] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[546] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[547] Clock interrupt number [109] has ocurred
+[548] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[549] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[550] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[551] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[552] Clock interrupt number [110] has ocurred
+[553] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[554] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[555] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[556] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[557] Clock interrupt number [111] has ocurred
+[558] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[559] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[560] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[561] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[562] Clock interrupt number [112] has ocurred
+[563] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[564] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[565] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[566] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[567] Clock interrupt number [113] has ocurred
+[568] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[569] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[570] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[571] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[572] Clock interrupt number [114] has ocurred
+[573] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[574] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[575] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[576] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[577] Clock interrupt number [115] has ocurred
+[578] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[579] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[580] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[581] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[582] Clock interrupt number [116] has ocurred
+[583] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[584] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[585] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[586] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[587] Clock interrupt number [117] has ocurred
+[588] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[589] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[590] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[591] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[592] Clock interrupt number [118] has ocurred
+[593] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[594] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[595] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[596] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[597] Clock interrupt number [119] has ocurred
+[598] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[599] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[600] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[601] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[602] Clock interrupt number [120] has ocurred
+[603] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[604] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[605] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[606] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[607] Clock interrupt number [121] has ocurred
+[608] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[609] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[610] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[611] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[612] Clock interrupt number [122] has ocurred
+[613] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[614] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[615] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[616] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[617] Clock interrupt number [123] has ocurred
+[618] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[619] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[620] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[621] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[622] Clock interrupt number [124] has ocurred
+[623] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[624] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[625] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[626] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[627] Clock interrupt number [125] has ocurred
+[628] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[629] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[630] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[631] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[632] Clock interrupt number [126] has ocurred
+[633] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[634] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[635] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[636] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[637] Clock interrupt number [127] has ocurred
+[638] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[639] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[640] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[641] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[642] Clock interrupt number [128] has ocurred
+[643] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[644] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[645] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[646] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[647] Clock interrupt number [129] has ocurred
+[648] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[649] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[650] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[651] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[652] Clock interrupt number [130] has ocurred
+[653] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[654] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[655] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[656] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[657] Clock interrupt number [131] has ocurred
+[658] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[659] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[660] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[661] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[662] Clock interrupt number [132] has ocurred
+[663] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[664] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[665] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[666] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[667] Clock interrupt number [133] has ocurred
+[668] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[669] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[670] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[671] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[672] Clock interrupt number [134] has ocurred
+[673] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[674] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[675] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[676] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[677] Clock interrupt number [135] has ocurred
+[678] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[679] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[680] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[681] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[682] Clock interrupt number [136] has ocurred
+[683] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[684] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[685] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[686] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[687] Clock interrupt number [137] has ocurred
+[688] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[689] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[690] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[691] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[692] Clock interrupt number [138] has ocurred
+[693] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[694] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[695] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[696] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[697] Clock interrupt number [139] has ocurred
+[698] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[699] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[700] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[701] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[702] Clock interrupt number [140] has ocurred
+[703] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[704] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[705] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[706] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[707] Clock interrupt number [141] has ocurred
+[708] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[709] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[710] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[711] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[712] Clock interrupt number [142] has ocurred
+[713] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[714] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[715] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[716] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[717] Clock interrupt number [143] has ocurred
+[718] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[719] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[720] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[721] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[722] Clock interrupt number [144] has ocurred
+[723] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[724] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[725] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[726] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[727] Clock interrupt number [145] has ocurred
+[728] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[729] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[730] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[731] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[732] Clock interrupt number [146] has ocurred
+[733] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[734] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[735] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[736] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[737] Clock interrupt number [147] has ocurred
+[738] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[739] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[740] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[741] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[742] Clock interrupt number [148] has ocurred
+[743] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[744] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[745] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[746] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[747] Clock interrupt number [149] has ocurred
+[748] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[749] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[750] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[751] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[752] Clock interrupt number [150] has ocurred
+[753] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[754] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[755] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[756] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[757] Clock interrupt number [151] has ocurred
+[758] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[759] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[760] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[761] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[762] Clock interrupt number [152] has ocurred
+[763] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[764] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[765] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[766] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[767] Clock interrupt number [153] has ocurred
+[768] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[769] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[770] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[771] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[772] Clock interrupt number [154] has ocurred
+[773] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[774] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[775] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[776] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[777] Clock interrupt number [155] has ocurred
+[778] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[779] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[780] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[781] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[782] Clock interrupt number [156] has ocurred
+[783] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[784] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[785] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[786] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[787] Clock interrupt number [157] has ocurred
+[788] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[789] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[790] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[791] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[792] Clock interrupt number [158] has ocurred
+[793] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[794] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[795] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[796] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[797] Clock interrupt number [159] has ocurred
+[798] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[799] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[800] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[801] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[802] Clock interrupt number [160] has ocurred
+[803] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[804] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[805] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[806] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[807] Clock interrupt number [161] has ocurred
+[808] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[809] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[810] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[811] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[812] Clock interrupt number [162] has ocurred
+[813] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[814] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[815] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[816] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[817] Clock interrupt number [163] has ocurred
+[818] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[819] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[820] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[821] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[822] Clock interrupt number [164] has ocurred
+[823] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[824] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[825] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[826] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[827] Clock interrupt number [165] has ocurred
+[828] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[829] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[830] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[831] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[832] Clock interrupt number [166] has ocurred
+[833] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[834] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[835] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[836] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[837] Clock interrupt number [167] has ocurred
+[838] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[839] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[840] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[841] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[842] Clock interrupt number [168] has ocurred
+[843] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[844] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[845] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[846] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[847] Clock interrupt number [169] has ocurred
+[848] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[849] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[850] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[851] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[852] Clock interrupt number [170] has ocurred
+[853] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[854] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[855] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[856] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[857] Clock interrupt number [171] has ocurred
+[858] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[859] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[860] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[861] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[862] Clock interrupt number [172] has ocurred
+[863] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[864] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[865] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[866] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[867] Clock interrupt number [173] has ocurred
+[868] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[869] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[870] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[871] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[872] Clock interrupt number [174] has ocurred
+[873] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[874] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[875] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[876] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[877] Clock interrupt number [175] has ocurred
+[878] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[879] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[880] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[881] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[882] Clock interrupt number [176] has ocurred
+[883] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[884] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[885] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[886] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[887] Clock interrupt number [177] has ocurred
+[888] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[889] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[890] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[891] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[892] Clock interrupt number [178] has ocurred
+[893] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[894] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[895] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[896] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[897] Clock interrupt number [179] has ocurred
+[898] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[899] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[900] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[901] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[902] Clock interrupt number [180] has ocurred
+[903] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[904] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[905] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[906] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[907] Clock interrupt number [181] has ocurred
+[908] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[909] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[910] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[911] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[912] Clock interrupt number [182] has ocurred
+[913] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[914] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[915] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[916] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[917] Clock interrupt number [183] has ocurred
+[918] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[919] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[920] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[921] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[922] Clock interrupt number [184] has ocurred
+[923] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[924] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[925] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[926] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[927] Clock interrupt number [185] has ocurred
+[928] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[929] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[930] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[931] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[932] Clock interrupt number [186] has ocurred
+[933] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[934] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[935] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[936] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[937] Clock interrupt number [187] has ocurred
+[938] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[939] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[940] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[941] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[942] Clock interrupt number [188] has ocurred
+[943] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[944] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[945] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[946] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[947] Clock interrupt number [189] has ocurred
+[948] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[949] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[950] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[951] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[952] Clock interrupt number [190] has ocurred
+[953] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[954] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[955] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[956] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[957] Clock interrupt number [191] has ocurred
+[958] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[959] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[960] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[961] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[962] Clock interrupt number [192] has ocurred
+[963] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[964] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
+[965] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[966] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
+	[967] Clock interrupt number [193] has ocurred
+[968] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])

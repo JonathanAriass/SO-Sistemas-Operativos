@@ -8,9 +8,9 @@ void Clock_Update() {
 	tics++;
     
 	if (tics%intervalBetweenInterrupts == 0) {
-		OperatingSystem_InterruptLogic(CLOCKINT_BIT);
+		Processor_RaiseInterrupt(CLOCKINT_BIT);
 	}
-	ComputerSystem_DebugMessage(97,CLOCK,tics);
+	//ComputerSystem_DebugMessage(97,CLOCK,tics);
 }
 
 
