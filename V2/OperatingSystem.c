@@ -279,11 +279,10 @@ void OperatingSystem_MoveToTheBLOCKEDState(int PID) {
 		processTable[PID].state=BLOCKED;
 		processTable[PID].whenToWakeUp = aux;
 		OperatingSystem_ShowTime(SYSPROC);
-		ComputerSystem_DebugMessage(110,SYSPROC,PID,programList[processTable[PID].programListIndex]->executableName,statesNames[previousState],statesNames[1]);
+		ComputerSystem_DebugMessage(110,SYSPROC,PID,programList[processTable[PID].programListIndex]->executableName,statesNames[previousState],statesNames[3]);
 	} 
-	OperatingSystem_PrintReadyToRunQueue();
+	//OperatingSystem_PrintStatus();
 }
-
 // The STS is responsible of deciding which process to execute when specific events occur.
 // It uses processes priorities to make the decission. Given that the READY queue is ordered
 // depending on processes priority, the STS just selects the process in front of the READY queue
@@ -314,6 +313,14 @@ int OperatingSystem_ExtractFromReadyToRun(int queueID) {
 	return selectedProcess; 
 }
 
+// Return PID of more priority process in the SLEEPING queue
+int OperatingSystem_ExtractFromBlockedToReady() {
+	int selectedProcess = NOPROCESS;
+
+	selectedProcess = Heap_poll(sleepingProcessesQueue, QUEUE_WAKEUP, &numberOfSleepingProcesses);
+
+	return selectedProcess;
+}
 
 // Function that assigns the processor to a process
 void OperatingSystem_Dispatch(int PID) {

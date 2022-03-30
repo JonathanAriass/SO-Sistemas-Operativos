@@ -2,89 +2,128 @@
 15 messages loaded from file messagesSTD.txt
 0 Asserts Loaded
 User progam list:
+	Program [programV2-2a] with arrival time [0]
 	Program [programV2-2b] with arrival time [0]
+	Program [programV2-2c] with arrival time [0]
 	[0] New process [3 - SystemIdleProcess] moving to the [NEW] state
 	[0] Process [3] created from program [SystemIdleProcess]
 	[0] Process [3 - SystemIdleProcess] moving from the [NEW] state to the [READY] state
 	[0] Ready-to-run processes queue:
 		USER: 
 		DAEMONS: [3,100]
-	[0] New process [0 - programV2-2b] moving to the [NEW] state
-	[0] Process [0] created from program [programV2-2b]
-	[0] Process [0 - programV2-2b] moving from the [NEW] state to the [READY] state
+	[0] New process [0 - programV2-2a] moving to the [NEW] state
+	[0] Process [0] created from program [programV2-2a]
+	[0] Process [0 - programV2-2a] moving from the [NEW] state to the [READY] state
 	[0] Ready-to-run processes queue:
-		USER: [0,999]
+		USER: [0,5]
 		DAEMONS: [3,100]
-	[0] Process [0 - programV2-2b] moving from the [READY] state to the [EXECUTING] state
+	[0] New process [1 - programV2-2b] moving to the [NEW] state
+	[0] Process [1] created from program [programV2-2b]
+	[0] Process [1 - programV2-2b] moving from the [NEW] state to the [READY] state
+	[0] Ready-to-run processes queue:
+		USER: [0,5], [1,999]
+		DAEMONS: [3,100]
+	[0] New process [2 - programV2-2c] moving to the [NEW] state
+	[0] Process [2] created from program [programV2-2c]
+	[0] Process [2 - programV2-2c] moving from the [NEW] state to the [READY] state
+	[0] Ready-to-run processes queue:
+		USER: [0,5], [1,999], [2,5]
+		DAEMONS: [3,100]
+	[0] Process [0 - programV2-2a] moving from the [READY] state to the [EXECUTING] state
 [1] {0D 000 000} IRET 0 0 (PC: 0, Accumulator: 0, PSW: 0002 [--------------Z-])
-[2] {01 002 000} ADD 2 0 (PC: 1, Accumulator: 2, PSW: 0000 [----------------])
-[3] {0A 801 000} INC -1 0 (PC: 2, Accumulator: 1, PSW: 0000 [----------------])
-[4] {07 002 000} ZJUMP 2 0 (PC: 3, Accumulator: 1, PSW: 0000 [----------------])
-[5] {06 802 000} JUMP -2 0 (PC: 1, Accumulator: 1, PSW: 0000 [----------------])
-[6] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 1, PSW: 8080 [M-------X-------])
-	[7] Clock interrupt number [1] has ocurred
-[8] {0D 000 000} IRET 0 0 (PC: 1, Accumulator: 1, PSW: 0000 [----------------])
-[9] {0A 801 000} INC -1 0 (PC: 2, Accumulator: 0, PSW: 0002 [--------------Z-])
-[10] {07 002 000} ZJUMP 2 0 (PC: 4, Accumulator: 0, PSW: 0002 [--------------Z-])
+[2] {05 000 000} NOP 0 0 (PC: 1, Accumulator: 0, PSW: 0002 [--------------Z-])
+[3] {01 005 000} ADD 5 0 (PC: 2, Accumulator: 5, PSW: 0000 [----------------])
+[4] {04 007 000} TRAP 7 0 (PC: 3, Accumulator: 5, PSW: 0000 [----------------])
+[5] {0C 002 000} OS 2 0 (PC: 242, Accumulator: 5, PSW: 8080 [M-------X-------])
+	[6] Process [0 - programV2-2a] moving from the [EXECUTING] state to the [BLOCKED] state
+	[6] Process [2 - programV2-2c] moving from the [READY] state to the [EXECUTING] state
+	[6] Running Process Information:
+		[PID: 2, Priority: 5, WakeUp: 0, Queue: USER]
+	[6] Ready-to-run processes queue:
+		USER: [1,999]
+		DAEMONS: [3,100]
+	[6] SLEEPING Queue:
+		[0, 5, 6]
+	[6] PID association with program's name:
+		PID: 0 -> programV2-2a
+		PID: 1 -> programV2-2b
+		PID: 2 -> programV2-2c
+		PID: 3 -> SystemIdleProcess
+[7] {0D 000 000} IRET 0 0 (PC: 0, Accumulator: 0, PSW: 0002 [--------------Z-])
+[8] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 0, PSW: 8082 [M-------X-----Z-])
+	[9] Clock interrupt number [1] has ocurred
+[10] {0D 000 000} IRET 0 0 (PC: 0, Accumulator: 0, PSW: 0002 [--------------Z-])
 [11] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 0, PSW: 8082 [M-------X-----Z-])
 	[12] Clock interrupt number [2] has ocurred
-[13] {0D 000 000} IRET 0 0 (PC: 4, Accumulator: 0, PSW: 0002 [--------------Z-])
-[14] {0A 001 000} INC 1 0 (PC: 5, Accumulator: 1, PSW: 0000 [----------------])
-[15] {04 007 000} TRAP 7 0 (PC: 6, Accumulator: 1, PSW: 0000 [----------------])
-[16] {0C 002 000} OS 2 0 (PC: 242, Accumulator: 1, PSW: 8080 [M-------X-------])
-	[17] Process [0 - programV2-2b] moving from the [EXECUTING] state to the [READY] state
-	[17] Ready-to-run processes queue:
+[13] {0D 000 000} IRET 0 0 (PC: 0, Accumulator: 0, PSW: 0002 [--------------Z-])
+[14] {05 000 000} NOP 0 0 (PC: 1, Accumulator: 0, PSW: 0002 [--------------Z-])
+[15] {01 002 000} ADD 2 0 (PC: 2, Accumulator: 2, PSW: 0000 [----------------])
+[16] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2, PSW: 8080 [M-------X-------])
+	[17] Clock interrupt number [3] has ocurred
+[18] {0D 000 000} IRET 0 0 (PC: 2, Accumulator: 2, PSW: 0000 [----------------])
+[19] {04 007 000} TRAP 7 0 (PC: 3, Accumulator: 2, PSW: 0000 [----------------])
+[20] {0C 002 000} OS 2 0 (PC: 242, Accumulator: 2, PSW: 8080 [M-------X-------])
+	[21] Process [2 - programV2-2c] moving from the [EXECUTING] state to the [BLOCKED] state
+	[21] Process [1 - programV2-2b] moving from the [READY] state to the [EXECUTING] state
+	[21] Running Process Information:
+		[PID: 1, Priority: 999, WakeUp: 0, Queue: USER]
+	[21] Ready-to-run processes queue:
 		USER: 
 		DAEMONS: [3,100]
-	[17] Process [3 - SystemIdleProcess] moving from the [READY] state to the [EXECUTING] state
-	[17] Running Process Information:
+	[21] SLEEPING Queue:
+		[2, 5, 6], [0, 5, 6]
+	[21] PID association with program's name:
+		PID: 0 -> programV2-2a
+		PID: 1 -> programV2-2b
+		PID: 2 -> programV2-2c
+		PID: 3 -> SystemIdleProcess
+[22] {0D 000 000} IRET 0 0 (PC: 0, Accumulator: 0, PSW: 0002 [--------------Z-])
+[23] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 0, PSW: 8082 [M-------X-----Z-])
+	[24] Clock interrupt number [4] has ocurred
+[25] {0D 000 000} IRET 0 0 (PC: 0, Accumulator: 0, PSW: 0002 [--------------Z-])
+[26] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 0, PSW: 8082 [M-------X-----Z-])
+	[27] Clock interrupt number [5] has ocurred
+[28] {0D 000 000} IRET 0 0 (PC: 0, Accumulator: 0, PSW: 0002 [--------------Z-])
+[29] {01 002 000} ADD 2 0 (PC: 1, Accumulator: 2, PSW: 0000 [----------------])
+[30] {0A 801 000} INC -1 0 (PC: 2, Accumulator: 1, PSW: 0000 [----------------])
+[31] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 1, PSW: 8080 [M-------X-------])
+	[32] Clock interrupt number [6] has ocurred
+[33] {0D 000 000} IRET 0 0 (PC: 2, Accumulator: 1, PSW: 0000 [----------------])
+[34] {07 002 000} ZJUMP 2 0 (PC: 3, Accumulator: 1, PSW: 0000 [----------------])
+[35] {06 802 000} JUMP -2 0 (PC: 1, Accumulator: 1, PSW: 0000 [----------------])
+[36] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 1, PSW: 8080 [M-------X-------])
+	[37] Clock interrupt number [7] has ocurred
+[38] {0D 000 000} IRET 0 0 (PC: 1, Accumulator: 1, PSW: 0000 [----------------])
+[39] {0A 801 000} INC -1 0 (PC: 2, Accumulator: 0, PSW: 0002 [--------------Z-])
+[40] {07 002 000} ZJUMP 2 0 (PC: 4, Accumulator: 0, PSW: 0002 [--------------Z-])
+[41] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 0, PSW: 8082 [M-------X-----Z-])
+	[42] Clock interrupt number [8] has ocurred
+[43] {0D 000 000} IRET 0 0 (PC: 4, Accumulator: 0, PSW: 0002 [--------------Z-])
+[44] {0A 001 000} INC 1 0 (PC: 5, Accumulator: 1, PSW: 0000 [----------------])
+[45] {04 007 000} TRAP 7 0 (PC: 6, Accumulator: 1, PSW: 0000 [----------------])
+[46] {0C 002 000} OS 2 0 (PC: 242, Accumulator: 1, PSW: 8080 [M-------X-------])
+	[47] Process [1 - programV2-2b] moving from the [EXECUTING] state to the [BLOCKED] state
+	[47] Process [3 - SystemIdleProcess] moving from the [READY] state to the [EXECUTING] state
+	[47] Running Process Information:
 		[PID: 3, Priority: 100, WakeUp: 0, Queue: DAEMONS]
-	[17] Ready-to-run processes queue:
+	[47] Ready-to-run processes queue:
 		USER: 
 		DAEMONS: 
-	[17] SLEEPING Queue:
-		[0, 999, 4]
-	[17] PID association with program's name:
-		PID: 0 -> programV2-2b
+	[47] SLEEPING Queue:
+		[1, 999, 10], [0, 5, 6], [2, 5, 6]
+	[47] PID association with program's name:
+		PID: 0 -> programV2-2a
+		PID: 1 -> programV2-2b
+		PID: 2 -> programV2-2c
 		PID: 3 -> SystemIdleProcess
-[18] {0D 000 000} IRET 0 0 (PC: 180, Accumulator: 0, PSW: 0082 [--------X-----Z-])
-[19] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 0, PSW: 8082 [M-------X-----Z-])
-	[20] Clock interrupt number [3] has ocurred
-[21] {0D 000 000} IRET 0 0 (PC: 180, Accumulator: 0, PSW: 0082 [--------X-----Z-])
-[22] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 0, PSW: 8082 [M-------X-----Z-])
-	[23] Clock interrupt number [4] has ocurred
-[24] {0D 000 000} IRET 0 0 (PC: 180, Accumulator: 0, PSW: 0082 [--------X-----Z-])
-[25] {01 57C 2CE} ADD 1404 718 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
-[26] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
-	[27] Clock interrupt number [5] has ocurred
-[28] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
-[29] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
-[30] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
-[31] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
-	[32] Clock interrupt number [6] has ocurred
-[33] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
-[34] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
-[35] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
-[36] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
-	[37] Clock interrupt number [7] has ocurred
-[38] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
-[39] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
-[40] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
-[41] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
-	[42] Clock interrupt number [8] has ocurred
-[43] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
-[44] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
-[45] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
-[46] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
-	[47] Clock interrupt number [9] has ocurred
-[48] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
-[49] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
-[50] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
-[51] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
-	[52] Clock interrupt number [10] has ocurred
-[53] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
-[54] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
-[55] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
+[48] {0D 000 000} IRET 0 0 (PC: 180, Accumulator: 0, PSW: 0082 [--------X-----Z-])
+[49] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 0, PSW: 8082 [M-------X-----Z-])
+	[50] Clock interrupt number [9] has ocurred
+[51] {0D 000 000} IRET 0 0 (PC: 180, Accumulator: 0, PSW: 0082 [--------X-----Z-])
+[52] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 0, PSW: 8082 [M-------X-----Z-])
+	[53] Clock interrupt number [10] has ocurred
+[54] {0D 000 000} IRET 0 0 (PC: 180, Accumulator: 0, PSW: 0082 [--------X-----Z-])
+[55] {01 57C 2CE} ADD 1404 718 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
 [56] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
 	[57] Clock interrupt number [11] has ocurred
 [58] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
@@ -959,42 +998,3 @@ User progam list:
 	[927] Clock interrupt number [185] has ocurred
 [928] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
 [929] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
-[930] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
-[931] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
-	[932] Clock interrupt number [186] has ocurred
-[933] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
-[934] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
-[935] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
-[936] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
-	[937] Clock interrupt number [187] has ocurred
-[938] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
-[939] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
-[940] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
-[941] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
-	[942] Clock interrupt number [188] has ocurred
-[943] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
-[944] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
-[945] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
-[946] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
-	[947] Clock interrupt number [189] has ocurred
-[948] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
-[949] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
-[950] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
-[951] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
-	[952] Clock interrupt number [190] has ocurred
-[953] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
-[954] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
-[955] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
-[956] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
-	[957] Clock interrupt number [191] has ocurred
-[958] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
-[959] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
-[960] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
-[961] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
-	[962] Clock interrupt number [192] has ocurred
-[963] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
-[964] {05 000 000} NOP 0 0 (PC: 182, Accumulator: 2122, PSW: 0080 [--------X-------])
-[965] {06 801 000} JUMP -1 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
-[966] {0C 009 000} OS 9 0 (PC: 246, Accumulator: 2122, PSW: 8080 [M-------X-------])
-	[967] Clock interrupt number [193] has ocurred
-[968] {0D 000 000} IRET 0 0 (PC: 181, Accumulator: 2122, PSW: 0080 [--------X-------])
