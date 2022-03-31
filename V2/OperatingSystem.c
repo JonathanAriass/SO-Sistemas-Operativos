@@ -272,14 +272,14 @@ void OperatingSystem_MoveToTheREADYState(int PID) {
 	OperatingSystem_PrintReadyToRunQueue();
 }
 
-void OperatingSystem_MoveToTheBLOCKEDState(int PID) {
-	int previousState = processTable[PID].state;
-	int aux = abs(Processor_GetAccumulator()) + numberOfClockInterrupts + 1;
-	if (Heap_add(PID, sleepingProcessesQueue,QUEUE_WAKEUP , &numberOfSleepingProcesses,PROCESSTABLEMAXSIZE)>=0) {
-		processTable[PID].state=BLOCKED;
-		processTable[PID].whenToWakeUp = aux;
+void OperatingSystem_MoveToTheBLOCKEDState() {
+	if (Heap_add(executingProcessID, sleepingProcessesQueue,QUEUE_WAKEUP , &numberOfSleepingProcesses,PROCESSTABLEMAXSIZE)>=0) {
+		int aux = abs(Processor_GetAccumulator()) + numberOfClockInterrupts + 1;
+		processTable[executingProcessID].state=BLOCKED;
+		processTable[executingProcessID].whenToWakeUp = aux;
 		OperatingSystem_ShowTime(SYSPROC);
-		ComputerSystem_DebugMessage(110,SYSPROC,PID,programList[processTable[PID].programListIndex]->executableName,statesNames[previousState],statesNames[3]);
+		ComputerSystem_DebugMessage(110,SYSPROC,executingProcessID,programList[processTable[executingProcessID].programListIndex]->executableName,statesNames[2],statesNames[3]);
+		OperatingSystem_SaveContext(executingProcessID);
 	} 
 	//OperatingSystem_PrintStatus();
 }
@@ -446,6 +446,7 @@ void OperatingSystem_HandleSystemCall() {
 			OperatingSystem_ShowTime(SYSPROC);
 			ComputerSystem_DebugMessage(73,SYSPROC,executingProcessID,programList[processTable[executingProcessID].programListIndex]->executableName);
 			OperatingSystem_TerminateProcess();
+			OperatingSystem_PrintStatus();
 			break;
 		case SYSCALL_YIELD:
 			// int previousPID = executingProcessID; 
@@ -460,6 +461,7 @@ void OperatingSystem_HandleSystemCall() {
 				ComputerSystem_DebugMessage(115,SHORTTERMSCHEDULE,executingProcessID,programList[processTable[executingProcessID].programListIndex]->executableName,programID,programList[processTable[programID].programListIndex]->executableName);
 				OperatingSystem_PreemptRunningProcess();
 				OperatingSystem_Dispatch(OperatingSystem_ShortTermScheduler());
+				OperatingSystem_PrintStatus();
 			}
 			break;
 		case SYSCALL_SLEEP:
@@ -539,7 +541,19 @@ void OperatingSystem_HandleClockInterrupt(){
 	OperatingSystem_ShowTime(INTERRUPT);
 	ComputerSystem_DebugMessage(120,INTERRUPT,numberOfClockInterrupts);
 
-	
+	int procLeft = numberOfSleepingProcesses;
+	int process = Heap_getFirst(sleepingProcessesQueue, numberOfSleepingProcesses);
+	int procAux = NOPROCESS;
+	while (processTable[process].whenToWakeUp == numberOfClockInterrupts && procLeft > 0) {
+		procAux = Heap_poll(sleepingProcessesQueue, QUEUE_WAKEUP, &numberOfSleepingProcesses);
+		if (procAux >= 0) {
+			OperatingSystem_MoveToTheREADYState(procAux);
+			process = Heap_getFirst(sleepingProcessesQueue, numberOfSleepingProcesses);
+			OperatingSystem_PrintStatus();
+		} else {
+			procLeft = 0;
+		}
+	}
 
 	return; 	
 }
