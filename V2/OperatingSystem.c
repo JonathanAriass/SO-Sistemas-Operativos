@@ -548,6 +548,12 @@ void OperatingSystem_HandleClockInterrupt(){
 		procAux = Heap_poll(sleepingProcessesQueue, QUEUE_WAKEUP, &numberOfSleepingProcesses);
 		if (procAux >= 0) {
 			OperatingSystem_MoveToTheREADYState(procAux);
+			if (processTable[procAux].priority > processTable[executingProcessID].priority) {
+				OperatingSystem_PrintReadyToRunQueue();
+				OperatingSystem_PreemptRunningProcess();
+				int id = OperatingSystem_ShortTermScheduler();
+				OperatingSystem_Dispatch(id);
+			}
 			process = Heap_getFirst(sleepingProcessesQueue, numberOfSleepingProcesses);
 			OperatingSystem_PrintStatus();
 		} else {
