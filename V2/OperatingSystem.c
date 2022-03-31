@@ -536,28 +536,45 @@ void OperatingSystem_PrintReadyToRunQueue() {
 }
 
 
+int comparePrioritys(int a, int b)
+{
+	if (processTable[a].queueID == USERPROCESSQUEUE && processTable[b].queueID == DAEMONSQUEUE)
+		return 1;
+	if (processTable[a].queueID == processTable[b].queueID && processTable[a].priority < processTable[b].priority)
+		return 1;
+
+	return 0;
+}
 
 void OperatingSystem_HandleClockInterrupt(){ 
 	OperatingSystem_ShowTime(INTERRUPT);
 	ComputerSystem_DebugMessage(120,INTERRUPT,numberOfClockInterrupts);
 
-	int procLeft = numberOfSleepingProcesses;
+	//int procLeft = numberOfSleepingProcesses;
 	int process = Heap_getFirst(sleepingProcessesQueue, numberOfSleepingProcesses);
-	int procAux = NOPROCESS;
-	while (processTable[process].whenToWakeUp == numberOfClockInterrupts && procLeft > 0) {
-		procAux = Heap_poll(sleepingProcessesQueue, QUEUE_WAKEUP, &numberOfSleepingProcesses);
-		if (procAux >= 0) {
-			OperatingSystem_MoveToTheREADYState(procAux);
-			if (processTable[procAux].priority > processTable[executingProcessID].priority) {
-				OperatingSystem_PrintReadyToRunQueue();
+	int counter = 0;
+	while (processTable[process].whenToWakeUp == numberOfClockInterrupts) {
+		OperatingSystem_MoveToTheREADYState(Heap_poll(sleepingProcessesQueue, QUEUE_WAKEUP, &numberOfSleepingProcesses));
+		process = Heap_getFirst(sleepingProcessesQueue, numberOfSleepingProcesses);
+		counter++;
+	}
+
+	if (counter > 0) {
+		for (int i=0;i<=processTable[executingProcessID].queueID;i++) {
+			int proceso = Heap_getFirst(readyToRunQueue[i], numberOfReadyToRunProcesses[i]);
+			if (comparePrioritys(proceso, executingProcessID))
+			{
+				OperatingSystem_ShowTime(SHORTTERMSCHEDULE);
+				ComputerSystem_DebugMessage(121, SHORTTERMSCHEDULE, executingProcessID, programList[processTable[executingProcessID].programListIndex]->executableName, proceso, programList[processTable[proceso].programListIndex]->executableName);
 				OperatingSystem_PreemptRunningProcess();
-				int id = OperatingSystem_ShortTermScheduler();
-				OperatingSystem_Dispatch(id);
+				OperatingSystem_Dispatch(OperatingSystem_ShortTermScheduler());
+				OperatingSystem_PrintStatus();
+				break;
 			}
-			process = Heap_getFirst(sleepingProcessesQueue, numberOfSleepingProcesses);
-			OperatingSystem_PrintStatus();
-		} else {
-			procLeft = 0;
+		}
+	} else {
+		if (numberOfNotTerminatedUserProcesses == 0 && numberOfSleepingProcesses == 0) {
+			OperatingSystem_ReadyToShutdown();
 		}
 	}
 
