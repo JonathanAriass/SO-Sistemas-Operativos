@@ -135,7 +135,7 @@ int OperatingSystem_LongTermScheduler() {
 				numberOfNotTerminatedUserProcesses++;
 			// Move process to the ready state
 			OperatingSystem_MoveToTheREADYState(PID);
-	
+			OperatingSystem_PrintStatus();
 		} else {
 			switch(PID) {
 				case PROGRAMNOTVALID:
@@ -269,7 +269,7 @@ void OperatingSystem_MoveToTheREADYState(int PID) {
 		OperatingSystem_ShowTime(SYSPROC);
 		ComputerSystem_DebugMessage(110,SYSPROC,PID,programList[processTable[PID].programListIndex]->executableName,statesNames[previousState],statesNames[1]);
 	} 
-	OperatingSystem_PrintReadyToRunQueue();
+	//OperatingSystem_PrintReadyToRunQueue();
 }
 
 void OperatingSystem_MoveToTheBLOCKEDState() {
@@ -387,6 +387,7 @@ void OperatingSystem_HandleException() {
 	ComputerSystem_DebugMessage(71,SYSPROC,executingProcessID,programList[processTable[executingProcessID].programListIndex]->executableName);
 	
 	OperatingSystem_TerminateProcess();
+	OperatingSystem_PrintStatus();
 }
 
 
@@ -480,6 +481,7 @@ void OperatingSystem_InterruptLogic(int entryPoint){
 			break;
 		case EXCEPTION_BIT: // EXCEPTION_BIT=6
 			OperatingSystem_HandleException();
+
 			break;
 		case CLOCKINT_BIT: // CLOCKINT_BIT=9
 			numberOfClockInterrupts++;
@@ -535,7 +537,8 @@ void OperatingSystem_PrintReadyToRunQueue() {
 
 }
 
-
+// Method that compares 2 processes priority and returns if the first process given as parameter (a)
+// has more priority that the second one (b)
 int comparePrioritys(int a, int b)
 {
 	if (processTable[a].queueID == USERPROCESSQUEUE && processTable[b].queueID == DAEMONSQUEUE)
