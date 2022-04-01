@@ -7,6 +7,8 @@ For using V1 you have to do a make to compile Objects and executables into the d
 # Info about V2
 In this version we take care of clock interruptions, where we block some processes and wake them up when some condition are satisfied. We take care of the output style too.
 
+
+# How to run the simulator
 First of all you should do a make of the code you want to use.
 
 ```sh
@@ -16,7 +18,7 @@ make
 Then you should be able to run this command:
 
 ```sh
-./Simulator [--debugSections=a] [programFileName] | head -n 1000 > [outputFile]
+./Simulator [--debugSections] [programFileName] | head -n 1000 > [outputFile]
 ./Simulator --debugSections=a programV2-2a programV2-2b programV2-2c| head -n 1000 > V2-2-output.log
 cat V2-2-output.log
 ```
