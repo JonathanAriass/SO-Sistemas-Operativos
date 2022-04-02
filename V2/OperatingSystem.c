@@ -98,6 +98,8 @@ void OperatingSystem_Initialize(int daemonsIndex) {
 	if (numberOfNotTerminatedUserProcesses == 0) {
 		//OperatingSystem_TerminatingSIP();
 		OperatingSystem_ReadyToShutdown();
+	} else {
+		OperatingSystem_PrintStatus();
 	}
 
 	if (strcmp(programList[processTable[sipID].programListIndex]->executableName,"SystemIdleProcess")) {
@@ -135,7 +137,7 @@ int OperatingSystem_LongTermScheduler() {
 				numberOfNotTerminatedUserProcesses++;
 			// Move process to the ready state
 			OperatingSystem_MoveToTheREADYState(PID);
-			OperatingSystem_PrintStatus();
+			//OperatingSystem_PrintStatus();
 		} else {
 			switch(PID) {
 				case PROGRAMNOTVALID:
@@ -273,10 +275,10 @@ void OperatingSystem_MoveToTheREADYState(int PID) {
 }
 
 void OperatingSystem_MoveToTheBLOCKEDState() {
-	if (Heap_add(executingProcessID, sleepingProcessesQueue,QUEUE_WAKEUP , &numberOfSleepingProcesses,PROCESSTABLEMAXSIZE)>=0) {
-		int aux = abs(Processor_GetAccumulator()) + numberOfClockInterrupts + 1;
+	int aux = abs(Processor_GetAccumulator()) + numberOfClockInterrupts + 1;
+	processTable[executingProcessID].whenToWakeUp = aux;
+	if (Heap_add(executingProcessID, sleepingProcessesQueue, QUEUE_WAKEUP, &numberOfSleepingProcesses,PROCESSTABLEMAXSIZE)>=0) {
 		processTable[executingProcessID].state=BLOCKED;
-		processTable[executingProcessID].whenToWakeUp = aux;
 		OperatingSystem_ShowTime(SYSPROC);
 		ComputerSystem_DebugMessage(110,SYSPROC,executingProcessID,programList[processTable[executingProcessID].programListIndex]->executableName,statesNames[2],statesNames[3]);
 		OperatingSystem_SaveContext(executingProcessID);
@@ -494,7 +496,7 @@ void OperatingSystem_InterruptLogic(int entryPoint){
 
 void OperatingSystem_PrintReadyToRunQueue() {
 	OperatingSystem_ShowTime(SHORTTERMSCHEDULE);
-	ComputerSystem_DebugMessage(106,SHORTTERMSCHEDULE,"Ready-to-run processes queue:");
+	ComputerSystem_DebugMessage(106,SHORTTERMSCHEDULE,"Ready-to-run processes queues:");
 
 	// if (numberOfReadyToRunProcesses == 1) {
 	// 	ComputerSystem_DebugMessage(108,SHORTTERMSCHEDULE,readyToRunQueue[0].info,processTable[readyToRunQueue[0].info].priority);
