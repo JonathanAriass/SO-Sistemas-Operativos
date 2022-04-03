@@ -1,4 +1,0 @@
-a) Se necesita hacer por las interrupciones, ya que se puede cambiar el PC y es necesario saber el PSW.
-b) Sí, se debería de guardar el acumulador.
-c) También, ya que se debe saber el valor del acumulador despues de la interrupcion.
-d) Se tendria que tener en cuenta el acumulador en el PCB.

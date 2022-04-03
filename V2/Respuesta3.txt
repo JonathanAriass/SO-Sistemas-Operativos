@@ -1,1 +1,0 @@
-No, debido a la instruccion HALT que finaliza la simulacion.
