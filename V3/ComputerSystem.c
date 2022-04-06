@@ -8,6 +8,9 @@
 #include "Asserts.h"
 #include "Wrappers.h"
 
+heapItem arrivalTimeQueue[PROGRAMSMAXNUMBER];
+int numberOfProgramsInArrivalTimeQueue=0;
+
 // Functions prototypes
 void ComputerSystem_PrintProgramList();
 

@@ -1,6 +1,8 @@
 #ifndef COMPUTERSYSTEM_H
 #define COMPUTERSYSTEM_H
 
+#define ARRIVALQUEUE
+
 #include "Simulator.h"
 #include "ComputerSystemBase.h"
 

@@ -3,6 +3,7 @@
 
 #include "MainMemory.h"
 #include "ProcessorBase.h"
+#include "OperatingSystem.h"
 
 #define INTERRUPTTYPES 10
 #define CPU_SUCCESS 1
@@ -23,6 +24,7 @@ void Processor_InstructionCycleLoop();
 void Processor_DecodeAndExecuteInstruction();
 void Processor_RaiseInterrupt(const unsigned int);
 void Processor_ManageInterrupts();
+int OperatingSystem_GetExecutingProcessID();
 
 char * Processor_ShowPSW();
 int Processor_GetCTRL();

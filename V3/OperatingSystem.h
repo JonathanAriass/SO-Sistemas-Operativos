@@ -55,5 +55,6 @@ typedef struct {
 void OperatingSystem_Initialize();
 void OperatingSystem_InterruptLogic(int);
 int OperatingSystem_PrepareStudentsDaemons(int);
+int OperatingSystem_GetExecutingProcessID();
 
 #endif

@@ -9,7 +9,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/Simulator",
-            "args": ["noexiste"],
+            "args": ["programV2-2a", "10", "programV2-2b", "0"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],

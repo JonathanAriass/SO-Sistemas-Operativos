@@ -26,6 +26,7 @@ void OperatingSystem_HandleException();
 void OperatingSystem_HandleSystemCall();
 void OperatingSystem_PrintReadyToRunQueue();
 void OperatingSystem_HandleClockInterrupt();
+int OperatingSystem_GetExecutingProcessID();
 
 // The process table
 PCB processTable[PROCESSTABLEMAXSIZE];
@@ -92,6 +93,10 @@ void OperatingSystem_Initialize(int daemonsIndex) {
 	// Include in program list  all system daemon processes
 	OperatingSystem_PrepareDaemons(daemonsIndex);
 	
+	// We fill the arrival time queue
+	ComputerSystem_FillInArrivalTimeQueue();
+	OperatingSystem_PrintStatus();
+
 	// Create all user processes from the information given in the command line
 	OperatingSystem_LongTermScheduler();
 
@@ -125,15 +130,16 @@ void OperatingSystem_Initialize(int daemonsIndex) {
 // 			command line and daemons programs
 int OperatingSystem_LongTermScheduler() {
   
-	int PID, i,
-		numberOfSuccessfullyCreatedProcesses=0;
-	
-	for (i=0; programList[i]!=NULL && i<PROGRAMSMAXNUMBER ; i++) {
-		PID=OperatingSystem_CreateProcess(i);
+	int PID, i, numberOfSuccessfullyCreatedProcesses=0;
+	while (OperatingSystem_IsThereANewProgram() == YES) {
+	//for (i=0; programList[i]!=NULL && i<PROGRAMSMAXNUMBER ; i++) {
+		//PID=OperatingSystem_CreateProcess(i);
+		i = Heap_poll(arrivalTimeQueue, QUEUE_ARRIVAL, &numberOfProgramsInArrivalTimeQueue);
+		PID = OperatingSystem_CreateProcess(i);
 		if (PID >= 0) {
 		
 			numberOfSuccessfullyCreatedProcesses++;
-			if (programList[i]->type==USERPROGRAM) 
+			if (programList[i]->type==USERPROGRAM)
 				numberOfNotTerminatedUserProcesses++;
 			// Move process to the ready state
 			OperatingSystem_MoveToTheREADYState(PID);
@@ -146,20 +152,21 @@ int OperatingSystem_LongTermScheduler() {
 					break;
 				case PROGRAMDOESNOTEXIST:
 					OperatingSystem_ShowTime(ERROR);
-					ComputerSystem_DebugMessage(104,ERROR,programList[i] -> executableName,"it does not exist");
+					ComputerSystem_DebugMessage(104,ERROR,programList[i]->executableName,"it does not exist");
 					break;
 				case NOFREEENTRY:
 					OperatingSystem_ShowTime(ERROR);
-					ComputerSystem_DebugMessage(103,ERROR,programList[i] -> executableName);
+					ComputerSystem_DebugMessage(103,ERROR,programList[i]->executableName);
 					break;
 				case TOOBIGPROCESS:
 					OperatingSystem_ShowTime(ERROR);
-					ComputerSystem_DebugMessage(105,ERROR,programList[i] -> executableName);
+					ComputerSystem_DebugMessage(105,ERROR,programList[i]->executableName);
 					break;
 				default:
 					break;
 			}
 		}
+	//}
 	}
 	// Return the number of succesfully created processes
 	return numberOfSuccessfullyCreatedProcesses;
@@ -584,6 +591,10 @@ void OperatingSystem_HandleClockInterrupt(){
 	}
 
 	return; 	
+}
+
+int OperatingSystem_GetExecutingProcessID() {
+	return executingProcessID;
 }
 
 
