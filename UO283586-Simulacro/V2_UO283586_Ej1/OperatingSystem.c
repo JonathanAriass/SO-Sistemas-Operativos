@@ -490,9 +490,9 @@ void OperatingSystem_InterruptLogic(int entryPoint){
 			OperatingSystem_HandleClockInterrupt();
 			break;
 		case ILLEGALHALTEXECUTION_BIT:
-			OperatingSystem_TerminateProcess();
 			OperatingSystem_ShowTime(EXAM);
 			ComputerSystem_DebugMessage(140, EXAM, executingProcessID,programList[processTable[executingProcessID].programListIndex]->executableName);
+			OperatingSystem_TerminateProcess();
 			break;
 	}
 
