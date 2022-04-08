@@ -194,7 +194,6 @@ void Processor_DecodeAndExecuteInstruction() {
 
 		// Instruction HALT
 		case HALT_INST:
-			// Processor_PSW_BitState(EXECUTION_MODE_BIT) != 1 (unsafe mode - user mode)
 			if (Processor_PSW_BitState(EXECUTION_MODE_BIT) != 1) {
 				Processor_RaiseInterrupt(EXCEPTION_BIT);
 			} else {

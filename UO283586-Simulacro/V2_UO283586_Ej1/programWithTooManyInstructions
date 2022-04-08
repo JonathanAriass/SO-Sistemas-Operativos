@@ -1,0 +1,6 @@
+// prog-V1-E7
+1
+2
+ADD 20, 0
+ADD 50, 20
+TRAP 3

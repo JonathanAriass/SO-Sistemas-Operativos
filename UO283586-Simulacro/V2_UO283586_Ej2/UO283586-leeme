@@ -1,0 +1,18 @@
+Cambios en este ejercicio:
+--> Struct de PCB:
+	se añade nuevo atributo de nuevo de ticks dormido
+--> SaveContext():
+	Se guarda este tick de ejecucion
+--> HandleClockInterruption():
+	int prioridadAntigua = processTable[process].priority;
+		int descuento = Clock_GetTime() - processTable[process].ticksDormido;
+		int nuevaPrioridad = prioridadAntigua - descuento;
+		if (nuevaPrioridad >= 0) {
+			processTable[process].priority = nuevaPrioridad;
+			ComputerSystem_DebugMessage(140, EXAM, prioridadAntigua, nuevaPrioridad);
+		} else {
+			processTable[process].priority = 1;
+			ComputerSystem_DebugMessage(140, EXAM, prioridadAntigua, 1);
+		}
+
+	Se comprueba la nueva prioridad a colocar.

@@ -1,0 +1,11 @@
+55
+100
+ADD 22 0  //Acumulador a 22
+WRITE 122 //En la dirección 122 se escribe lo que está en el registro acumulador
+//Empezamos el bucle
+MEMADD 2 122 //leemos el valor de la dirección 122 y le aumentas dos para los pares
+WRITE 122 //guardas en la direccion 122 el siguiente numero par
+INC -42 //en el registro acumulador restamos al numero par -42, MEMADD -42 122
+ZJUMP 2 //si el valor del acumulador es 0 significa que llegamos al final por lo que salta al Halt
+JUMP -4 // se repite el bucle
+HALT // pone el PSW a off
