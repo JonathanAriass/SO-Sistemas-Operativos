@@ -100,7 +100,7 @@ void OperatingSystem_Initialize(int daemonsIndex) {
 	// Create all user processes from the information given in the command line
 	OperatingSystem_LongTermScheduler();
 
-	if (numberOfNotTerminatedUserProcesses == 0) {
+	if (numberOfNotTerminatedUserProcesses == 0 && numberOfProgramsInArrivalTimeQueue <= 0) {
 		//OperatingSystem_TerminatingSIP();
 		OperatingSystem_ReadyToShutdown();
 	} else {
@@ -571,7 +571,9 @@ void OperatingSystem_HandleClockInterrupt(){
 		counter++;
 	}
 
-	if (counter > 0) {
+	int newProcess = OperatingSystem_LongTermScheduler();
+
+	if (counter > 0 || newProcess > 0) {
 		for (int i=0;i<=processTable[executingProcessID].queueID;i++) {
 			int proceso = Heap_getFirst(readyToRunQueue[i], numberOfReadyToRunProcesses[i]);
 			if (comparePrioritys(proceso, executingProcessID))
