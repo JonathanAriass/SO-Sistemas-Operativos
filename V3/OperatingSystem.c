@@ -100,7 +100,13 @@ void OperatingSystem_Initialize(int daemonsIndex) {
 	// Create all user processes from the information given in the command line
 	OperatingSystem_LongTermScheduler();
 
-	if (numberOfNotTerminatedUserProcesses == 0 && numberOfProgramsInArrivalTimeQueue <= 0) {
+	if (numberOfNotTerminatedUserProcesses <= 0 && numberOfProgramsInArrivalTimeQueue <= 0) {
+		if (executingProcessID == sipID) {
+			OperatingSystem_TerminatingSIP();
+			OperatingSystem_ShowTime(SHUTDOWN);
+			ComputerSystem_DebugMessage(99, SHUTDOWN, "The system will shut down now...\n");
+			return;
+		}
 		//OperatingSystem_TerminatingSIP();
 		OperatingSystem_ReadyToShutdown();
 	} else {
@@ -413,7 +419,7 @@ void OperatingSystem_TerminateProcess() {
 		// One more user process that has terminated
 		numberOfNotTerminatedUserProcesses--;
 	
-	if (numberOfNotTerminatedUserProcesses==0) {
+	if (numberOfNotTerminatedUserProcesses==0 && numberOfProgramsInArrivalTimeQueue <= 0) {
 		if (executingProcessID==sipID) {
 			// finishing sipID, change PC to address of OS HALT instruction
 			OperatingSystem_TerminatingSIP();
@@ -587,7 +593,7 @@ void OperatingSystem_HandleClockInterrupt(){
 			}
 		}
 	} else {
-		if (numberOfNotTerminatedUserProcesses == 0 && numberOfSleepingProcesses == 0) {
+		if (numberOfNotTerminatedUserProcesses <= 0 && numberOfProgramsInArrivalTimeQueue <= 0) {
 			OperatingSystem_ReadyToShutdown();
 		}
 	}
