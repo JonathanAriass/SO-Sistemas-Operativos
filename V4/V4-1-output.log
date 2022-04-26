@@ -1,6 +1,5 @@
 40 messages loaded from file messagesTCH.txt
-Duplicated message [140]!!!
-18 messages loaded from file messagesSTD.txt
+19 messages loaded from file messagesSTD.txt
 0 Asserts Loaded
 User progam list:
 	Program [programV4-1] with arrival time [0]
@@ -53,7 +52,7 @@ User progam list:
 [1] {0D 000 000} IRET 0 0 (PID: 0, PC: 0, Accumulator: 0, PSW: 0002 [--------------Z-])
 [2] {04 29A 000} TRAP 666 0 (PID: 0, PC: 1, Accumulator: 0, PSW: 0002 [--------------Z-])
 [3] {0C 002 000} OS 2 0 (PID: 0, PC: 242, Accumulator: 0, PSW: 8082 [M-------X-----Z-])
-[4] Debug Message 141 not defined
+[4]  Process [0 - programV4-1] has made an invalid system call (666) and is being terminated
 	[4] Process [0 - programV4-1] moving from the [EXECUTING] state to the [EXIT] state
 	[4] Process [3 - SystemIdleProcess] moving from the [READY] state to the [EXECUTING] state
 	[4] Running Process Information:
@@ -111,7 +110,7 @@ User progam list:
 [23] {0D 000 000} IRET 0 0 (PID: 1, PC: 0, Accumulator: 0, PSW: 0002 [--------------Z-])
 [24] {08 A2B 000} WRITE -555 0 (PID: 1, PC: 1, Accumulator: 0, PSW: 0002 [--------------Z-])
 [25] {0C 006 000} OS 6 0 (PID: 1, PC: 244, Accumulator: 0, PSW: 8082 [M-------X-----Z-])
-	[26]  Process [1 - programV4-2] has caused an exception [invalid address] and is being terminated
+	[26]  Process [1 - programV4-2] has caused an exception (invalid address) and is being terminated
 	[26] Process [1 - programV4-2] moving from the [EXECUTING] state to the [EXIT] state
 	[26] Process [3 - SystemIdleProcess] moving from the [READY] state to the [EXECUTING] state
 	[26] Running Process Information:
@@ -172,7 +171,7 @@ User progam list:
 [48] {0D 000 000} IRET 0 0 (PID: 2, PC: 0, Accumulator: 0, PSW: 0002 [--------------Z-])
 [49] {00 001 002} NONEXISTING_INSTRUCTION 1 2 (PID: 2, PC: 1, Accumulator: 0, PSW: 0002 [--------------Z-])
 [50] {0C 006 000} OS 6 0 (PID: 2, PC: 244, Accumulator: 0, PSW: 8082 [M-------X-----Z-])
-	[51]  Process [2 - programV4-3] has caused an exception [invalid instruction] and is being terminated
+	[51]  Process [2 - programV4-3] has caused an exception (invalid instruction) and is being terminated
 	[51] Process [2 - programV4-3] moving from the [EXECUTING] state to the [EXIT] state
 	[51] Process [3 - SystemIdleProcess] moving from the [READY] state to the [EXECUTING] state
 	[51] Running Process Information:
@@ -227,7 +226,7 @@ User progam list:
 [68] {0D 000 000} IRET 0 0 (PID: 0, PC: 0, Accumulator: 0, PSW: 0002 [--------------Z-])
 [69] {0B 000 000} HALT 0 0 (PID: 0, PC: 0, Accumulator: 0, PSW: 0002 [--------------Z-])
 [70] {0C 006 000} OS 6 0 (PID: 0, PC: 244, Accumulator: 0, PSW: 8082 [M-------X-----Z-])
-	[71]  Process [0 - programV4-4] has caused an exception [invalid processor mode] and is being terminated
+	[71]  Process [0 - programV4-4] has caused an exception (invalid processor mode) and is being terminated
 	[71] Process [0 - programV4-4] moving from the [EXECUTING] state to the [EXIT] state
 	[71] Process [3 - SystemIdleProcess] moving from the [READY] state to the [EXECUTING] state
 	[71] Running Process Information:

@@ -244,10 +244,48 @@ int OperatingSystem_CreateProcess(int indexOfExecutableProgram) {
 // always obtains the chunk whose position in memory is equal to the processor identifier
 int OperatingSystem_ObtainMainMemory(int processSize, int PID) {
 
- 	if (processSize>MAINMEMORYSECTIONSIZE)
-		return TOOBIGPROCESS;
+ 	//if (processSize>MAINMEMORYSECTIONSIZE)
+	//	return TOOBIGPROCESS;
 	
- 	return PID*MAINMEMORYSECTIONSIZE;
+ 	//return PID*MAINMEMORYSECTIONSIZE;
+
+	int size = -1;
+
+	int mejorParticion = -1;
+
+	int particionEncontrada = 0;
+	int asignado = 0;
+
+	for (int i=0;i<PARTITIONTABLEMAXSIZE;i++) {
+		
+		if (partitionsTable[i].size >= processSize) {
+			particionEncontrada = 1;
+			if (partitionsTable[i].PID == NOPROCESS) {
+				if (partitionsTable[i].size < size || size == -1) {
+					size = partitionsTable[i].size;
+					mejorParticion = i;
+					asignado = 1;
+				} else if (partitionsTable[i].size == size) {
+					if (partitionsTable[i].initAddress < partitionsTable[mejorParticion].initAddress) {
+						size = partitionsTable[i].size;
+						mejorParticion = i;
+						asignado = 1;
+					}
+				}
+			}	
+		}
+	}
+
+	if (asignado == 0 && particionEncontrada != 0) {
+		return MEMORYFULL;
+	}
+	if (asignado == 0 && particionEncontrada == 0) {
+		return TOOBIGPROCESS;
+	}
+
+	ComputerSystem_DebugMessage(142,SYSMEM,PID,programList[processTable[PID].programListIndex]->executableName,size);
+
+	return mejorParticion;
 }
 
 

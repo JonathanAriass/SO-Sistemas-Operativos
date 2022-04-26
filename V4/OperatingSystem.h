@@ -15,6 +15,7 @@
 
 #define NOFREEENTRY -3
 #define TOOBIGPROCESS -4
+#define MEMORYFULL -5
 
 #define NOPROCESS -1
 
