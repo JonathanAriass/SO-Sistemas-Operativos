@@ -27,6 +27,7 @@ void OperatingSystem_HandleSystemCall();
 void OperatingSystem_PrintReadyToRunQueue();
 void OperatingSystem_HandleClockInterrupt();
 int OperatingSystem_GetExecutingProcessID();
+void OperatingSystem_ReleaseMainMemory();
 
 // The process table
 PCB processTable[PROCESSTABLEMAXSIZE];
@@ -170,6 +171,10 @@ int OperatingSystem_LongTermScheduler() {
 					OperatingSystem_ShowTime(ERROR);
 					ComputerSystem_DebugMessage(105,ERROR,programList[i]->executableName);
 					break;
+				case MEMORYFULL:
+					OperatingSystem_ShowTime(ERROR);
+					ComputerSystem_DebugMessage(144,ERROR,programList[i]->executableName);
+					break;
 				default:
 					break;
 			}
@@ -186,7 +191,7 @@ int OperatingSystem_CreateProcess(int indexOfExecutableProgram) {
   
 	int PID;
 	int processSize;
-	int loadingPhysicalAddress;
+	//int loadingPhysicalAddress;
 	int priority;
 	FILE *programFile;
 	PROGRAMS_DATA *executableProgram=programList[indexOfExecutableProgram];
@@ -218,20 +223,37 @@ int OperatingSystem_CreateProcess(int indexOfExecutableProgram) {
 	}
 			
 	// Obtain enough memory space
- 	loadingPhysicalAddress=OperatingSystem_ObtainMainMemory(processSize, PID);
+ 	//loadingPhysicalAddress=OperatingSystem_ObtainMainMemory(processSize, PID);
+	int particion = OperatingSystem_ObtainMainMemory(processSize, PID);
 	// We check if the programm size is small enough to fit on the memmory space
-	if (loadingPhysicalAddress == TOOBIGPROCESS) {
+	if (particion < 0) {
+		return particion;
+	}
+
+	OperatingSystem_ShowTime(SYSMEM);
+	ComputerSystem_DebugMessage(142,SYSMEM,PID,programList[indexOfExecutableProgram]->executableName,processSize);
+
+
+	// Load program in the allocated memory
+	if (OperatingSystem_LoadProgram(programFile, partitionsTable[particion].initAddress, processSize) == TOOBIGPROCESS) {
 		return TOOBIGPROCESS;
 	}
 
-	// Load program in the allocated memory
-	if (OperatingSystem_LoadProgram(programFile, loadingPhysicalAddress, processSize) == TOOBIGPROCESS) {
-		return TOOBIGPROCESS;
-	}
-	
+	processTable[PID].programListIndex = indexOfExecutableProgram;
+
+	OperatingSystem_ShowPartitionTable("before allocating memory");
+
+	partitionsTable[particion].PID = PID;
+
+	OperatingSystem_ShowTime(SYSMEM);
+	ComputerSystem_DebugMessage(143,SYSMEM,particion, partitionsTable[particion].initAddress, partitionsTable[particion].size,PID,executableProgram->executableName);
+
+
 	// PCB initialization
-	OperatingSystem_PCBInitialization(PID, loadingPhysicalAddress, processSize, priority, indexOfExecutableProgram);
+	OperatingSystem_PCBInitialization(PID, partitionsTable[particion].initAddress, processSize, priority, indexOfExecutableProgram);
 	
+	OperatingSystem_ShowPartitionTable("after allocating memory");
+
 	// Show message "Process [PID] created from program [executableName]\n"
 	OperatingSystem_ShowTime(INIT);
 	ComputerSystem_DebugMessage(70,INIT,PID,executableProgram->executableName);
@@ -282,8 +304,6 @@ int OperatingSystem_ObtainMainMemory(int processSize, int PID) {
 	if (asignado == 0 && particionEncontrada == 0) {
 		return TOOBIGPROCESS;
 	}
-
-	ComputerSystem_DebugMessage(142,SYSMEM,PID,programList[processTable[PID].programListIndex]->executableName,size);
 
 	return mejorParticion;
 }
@@ -473,7 +493,7 @@ void OperatingSystem_TerminateProcess() {
 	if (programList[processTable[executingProcessID].programListIndex]->type==USERPROGRAM) 
 		// One more user process that has terminated
 		numberOfNotTerminatedUserProcesses--;
-	
+	OperatingSystem_ReleaseMainMemory();
 	if (numberOfNotTerminatedUserProcesses==0 && numberOfProgramsInArrivalTimeQueue <= 0) {
 		if (executingProcessID==sipID) {
 			// finishing sipID, change PC to address of OS HALT instruction
@@ -666,6 +686,22 @@ int OperatingSystem_GetExecutingProcessID() {
 	return executingProcessID;
 }
 
+void OperatingSystem_ReleaseMainMemory() {
 
+	for (int i=0;i<PARTITIONTABLEMAXSIZE;i++) {
+		if (partitionsTable[i].PID == executingProcessID) {
+			OperatingSystem_ShowPartitionTable("before releasing memory");
+
+			partitionsTable[i].PID = NOPROCESS;
+
+			OperatingSystem_ShowTime(SYSMEM);
+			ComputerSystem_DebugMessage(145,SYSMEM,i,partitionsTable[i].initAddress,partitionsTable[i].size, executingProcessID, programList[processTable[executingProcessID].programListIndex]->executableName);
+
+			OperatingSystem_ShowPartitionTable("after releasing memory");
+		}
+
+	}
+
+}
 
 
