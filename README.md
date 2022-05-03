@@ -24,6 +24,23 @@ Then we will be able to run the program for different user programs:
 cat V3-output.log
 ```
 
+# Info about V4
+In this version we work with the space on memory creating different partitions on the memory space. This memory space is divided into different blocks where the programs will be stored (done in the OperatingSystem_ObtainMainMemory()).
+
+To execute this version we need to compile the program:
+
+```sh
+make
+```
+Then we will be able to run the program for different user programs:
+
+```sh
+./Simulator [--debugSections] [programFileName] [instant] | head -n 1000 > [outputFile]
+./Simulator --debugSections=a programV4-1 0 programV4-2 22 programV4-3 44 programV4-4 66 | head -n 550 > V4-2-output.log
+cat V4-2-output.log
+```
+
+
 # How to run the simulator
 First of all you should do a make of the code you want to use.
 
