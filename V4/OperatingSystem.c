@@ -27,7 +27,7 @@ void OperatingSystem_HandleSystemCall();
 void OperatingSystem_PrintReadyToRunQueue();
 void OperatingSystem_HandleClockInterrupt();
 int OperatingSystem_GetExecutingProcessID();
-void OperatingSystem_ReleaseMainMemory();
+void OperatingSystem_ReleaseMainMemory(int);
 
 // The process table
 PCB processTable[PROCESSTABLEMAXSIZE];
@@ -343,6 +343,7 @@ void OperatingSystem_MoveToTheREADYState(int PID) {
 		processTable[PID].state=READY;
 		OperatingSystem_ShowTime(SYSPROC);
 		ComputerSystem_DebugMessage(110,SYSPROC,PID,programList[processTable[PID].programListIndex]->executableName,statesNames[previousState],statesNames[1]);
+		OperatingSystem_PrintStatus();
 	} 
 	//OperatingSystem_PrintReadyToRunQueue();
 }
@@ -493,7 +494,9 @@ void OperatingSystem_TerminateProcess() {
 	if (programList[processTable[executingProcessID].programListIndex]->type==USERPROGRAM) 
 		// One more user process that has terminated
 		numberOfNotTerminatedUserProcesses--;
-	OperatingSystem_ReleaseMainMemory();
+
+	OperatingSystem_ReleaseMainMemory(executingProcessID);
+
 	if (numberOfNotTerminatedUserProcesses==0 && numberOfProgramsInArrivalTimeQueue <= 0) {
 		if (executingProcessID==sipID) {
 			// finishing sipID, change PC to address of OS HALT instruction
@@ -561,7 +564,7 @@ void OperatingSystem_HandleSystemCall() {
 			OperatingSystem_PrintStatus();
 			break;
 		default:
-			ComputerSystem_ShowTime(INTERRUPT);
+			OperatingSystem_ShowTime(INTERRUPT);
 			ComputerSystem_DebugMessage(141,INTERRUPT,executingProcessID,programList[processTable[executingProcessID].programListIndex]->executableName, systemCallID);
 			OperatingSystem_TerminateProcess();
 			OperatingSystem_PrintStatus();
@@ -668,8 +671,8 @@ void OperatingSystem_HandleClockInterrupt(){
 				OperatingSystem_ShowTime(SHORTTERMSCHEDULE);
 				ComputerSystem_DebugMessage(121, SHORTTERMSCHEDULE, executingProcessID, programList[processTable[executingProcessID].programListIndex]->executableName, proceso, programList[processTable[proceso].programListIndex]->executableName);
 				OperatingSystem_PreemptRunningProcess();
-				OperatingSystem_Dispatch(OperatingSystem_ShortTermScheduler());
 				OperatingSystem_PrintStatus();
+				OperatingSystem_Dispatch(OperatingSystem_ShortTermScheduler());
 				break;
 			}
 		}
@@ -686,18 +689,19 @@ int OperatingSystem_GetExecutingProcessID() {
 	return executingProcessID;
 }
 
-void OperatingSystem_ReleaseMainMemory() {
+void OperatingSystem_ReleaseMainMemory(int PID) {
 
 	for (int i=0;i<PARTITIONTABLEMAXSIZE;i++) {
-		if (partitionsTable[i].PID == executingProcessID) {
+		if (partitionsTable[i].PID == PID) {
 			OperatingSystem_ShowPartitionTable("before releasing memory");
-
-			partitionsTable[i].PID = NOPROCESS;
 
 			OperatingSystem_ShowTime(SYSMEM);
 			ComputerSystem_DebugMessage(145,SYSMEM,i,partitionsTable[i].initAddress,partitionsTable[i].size, executingProcessID, programList[processTable[executingProcessID].programListIndex]->executableName);
+			
+			partitionsTable[i].PID = NOPROCESS;
 
 			OperatingSystem_ShowPartitionTable("after releasing memory");
+			break;
 		}
 
 	}

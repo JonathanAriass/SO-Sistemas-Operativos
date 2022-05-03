@@ -59,6 +59,7 @@ void ComputerSystem_PowerOff() {
 //
 //
 void ComputerSystem_PrintProgramList() {
+	ComputerSystem_ShowTime(INIT);
 	ComputerSystem_DebugMessage(101, INIT);
 	for (int i=1;programList[i] != NULL;i++) {
 		if (programList[i] -> type == USERPROGRAM) {
