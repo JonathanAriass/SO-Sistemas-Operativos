@@ -1,7 +1,7 @@
 40 messages loaded from file messagesTCH.txt
 19 messages loaded from file messagesSTD.txt
 0 Asserts Loaded
-User progam list:
+[0] User progam list:
 	Program [programV4-1] with arrival time [0]
 	Program [programV4-2] with arrival time [22]
 	Program [programV4-3] with arrival time [44]
