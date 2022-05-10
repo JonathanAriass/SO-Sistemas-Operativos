@@ -39,7 +39,13 @@ Then we will be able to run the program for different user programs:
 ./Simulator --debugSections=a programV4-1 0 programV4-2 22 programV4-3 44 programV4-4 66 | head -n 550 > V4-2-output.log
 cat V4-2-output.log
 ```
-
+You can now run new scripts like for example:
+<ul>
+  <li>script-V4-teacher-test1.sh</li>
+  <li>script-V4-teacher-test2.sh</li>
+  <li>script-V4-teacher-test3.sh</li>
+</ul>
+And you will find the info on the log files OutputForV4-test[n].log
 
 # How to run the simulator
 First of all you should do a make of the code you want to use.
