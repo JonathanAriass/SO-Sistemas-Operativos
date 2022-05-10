@@ -1,0 +1,9 @@
+32
+5
+ADD -10 0
+TRAP 7
+INC 1
+ZJUMP 2
+JUMP -3
+TRAP 23
+

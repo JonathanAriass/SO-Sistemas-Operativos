@@ -1,0 +1,9 @@
+35
+133
+ADD 0 -4
+INC 2
+TRAP 4
+ZJUMP 2
+JUMP -3
+OS
+

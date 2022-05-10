@@ -1,0 +1,54 @@
+2c2
+< 22 messages loaded from file messagesSTD.txt
+---
+> 23 messages loaded from file messagesSTD.txt
+8,13d7
+< 	[0] Main memory state (during system initialization):
+< 		[0] [0 -> 12][AVAILABLE]
+< 		[1] [12 -> 32][AVAILABLE]
+< 		[2] [44 -> 16][AVAILABLE]
+< 		[3] [60 -> 16][AVAILABLE]
+< 		[4] [76 -> 32][AVAILABLE]
+26a21,26
+> 	[0] Main memory state (during system initialization):
+> 		[0] [0 -> 12][AVAILABLE]
+> 		[1] [12 -> 32][AVAILABLE]
+> 		[2] [44 -> 16][AVAILABLE]
+> 		[3] [60 -> 16][AVAILABLE]
+> 		[4] [76 -> 32][AVAILABLE]
+56a57,69
+> 	[0] Running Process Information:
+> 		[--- No running process ---]
+> 	[0] Ready-to-run processes queues:
+> 		USER: 
+> 		DAEMONS: [3,100]
+> 	[0] SLEEPING Queue:
+> 		[--- empty queue ---]
+> 	[0] PID association with program's name:
+> 		PID: 3 -> SystemIdleProcess
+> 	[0] Arrival Time Queue:
+> 		[test2-1, 10, USER]
+> 		[iDontExist, 350, USER]
+> 		[test2-2, 30, USER]
+197c210
+< [34] {00 001 000} NONEXISTING_INSTRUCTION 1 0 (PID: 1, PC: 0, Accumulator: 0, PSW: 0002 [--------------Z-])
+---
+> [34] {00 001 000} NONEXISTING_INSTRUCTION 1 0 (PID: 1, PC: 1, Accumulator: 0, PSW: 0002 [--------------Z-])
+460,472d472
+< 	[267] Running Process Information:
+< 		[PID: 3, Priority: 100, WakeUp: 0, Queue: DAEMONS]
+< 	[267] Ready-to-run processes queues:
+< 		USER: [0,5]
+< 		DAEMONS: 
+< 	[267] SLEEPING Queue:
+< 		[--- empty queue ---]
+< 	[267] PID association with program's name:
+< 		PID: 0 -> test2-1
+< 		PID: 1 -> test2-2
+< 		PID: 3 -> SystemIdleProcess
+< 	[267] Arrival Time Queue:
+< 		[iDontExist, 350, USER]
+602c602
+< 	[352] ERROR: Program [iDontExist] is not valid [-- it does not exist --]
+---
+> 	[352] ERROR: Program [iDontExist] is not valid [--- it does not exist ---]
